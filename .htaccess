@@ -1,0 +1,32 @@
+Options +FollowSymLinks
+IndexIgnore */*
+RewriteEngine on
+
+# redirect from https://
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# redirect на www
+#RewriteEngine On
+#RewriteCond %{HTTP_HOST} ^alexart21.ru$ [NC]
+#RewriteRule ^(.*)$ https://alexart21.ru/$1 [R=301,L]
+
+RewriteCond %{REQUEST_URI} /
+RewriteRule ^favicon\.(ico|png)$ /web/favicon\.$1 [L]
+RewriteRule ^robots\.txt$ /web/robots.txt [L]
+RewriteRule ^phpinfo\.php$ /web/phpinfo.php [L]
+RewriteRule ^sitemap\.xml$ /web/sitemap.xml [L]
+RewriteRule ^assets/(.*)$ /web/assets/$1 [L]
+RewriteRule ^css/(.*)$ web/css/$1 [L]
+RewriteRule ^fonts/(.*)$ web/fonts/$1 [L]
+RewriteRule ^js/(.*)$ web/js/$1 [L]
+RewriteRule ^img/(.*)$ web/img/$1 [L]
+RewriteRule ^upload/(.*)$ web/upload/$1 [L]
+RewriteRule ^minify/(.*)$ web/minify/$1 [L]
+RewriteRule ^file/(.*)$ web/file/$1 [L]
+RewriteRule (.*) /web/$1
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule . /web/index.php

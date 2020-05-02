@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+	<loc>https://www.alexart21.ru</loc>
+	<changefreq>weekly</changefreq>
+	<lastmod>2020-03-23</lastmod>
+	<priority>1</priority>
+</url>
+<url>
+	<loc>https://www.alexart21.ru/sozdanie</loc>
+	<changefreq>weekly</changefreq>
+	<lastmod>2020-03-23</lastmod>
+	<priority>1</priority>
+</url>
+<url>
+	<loc>https://www.alexart21.ru/prodvijenie</loc>
+	<changefreq>weekly</changefreq>
+	<lastmod>2020-03-23</lastmod>
+	<priority>1</priority>
+</url>
+<url>
+	<loc>https://www.alexart21.ru/portfolio</loc>
+	<changefreq>weekly</changefreq>
+	<lastmod>2020-03-23</lastmod>
+	<priority>1</priority>
+</url>
+<url>
+	<loc>https://www.alexart21.ru/parsing</loc>
+	<changefreq>weekly</changefreq>
+	<lastmod>2020-03-23</lastmod>
+	<priority>1</priority>
+</url>
+</urlset>

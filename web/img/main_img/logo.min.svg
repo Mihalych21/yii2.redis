@@ -1,0 +1,59 @@
+<svg xmlns:osb="http://www.openswatchbook.org/uri/2009/osb" xmlns="http://www.w3.org/2000/svg" width="240" height="138"
+     viewBox="0 0 240 138">
+    <defs>
+        <linearGradient id="c">
+            <stop offset="0" stop-color="#e61b05"/>
+            <stop offset="1" stop-color="#e61b05" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="b" osb:paint="solid">
+            <stop offset="0" stop-color="#e61b05"/>
+        </linearGradient>
+        <linearGradient id="a" osb:paint="solid">
+            <stop offset="0" stop-color="red"/>
+        </linearGradient>
+        <filter id="e" x="-.006" width="1.011" y="-.05" height="1.101" color-interpolation-filters="sRGB">
+            <feGaussianBlur stdDeviation=".316"/>
+        </filter>
+        <filter id="d" width="1.37" x="-.16" y="-.03" color-interpolation-filters="sRGB">
+            <feGaussianBlur stdDeviation="1" in="SourceAlpha" result="result0"/>
+            <feMorphology in="SourceAlpha" radius="6.6" result="result1"/>
+            <feGaussianBlur stdDeviation="8.9" in="result1"/>
+            <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.3 0" result="result91"/>
+            <feComposite in="result0" operator="out" result="result2" in2="result91"/>
+            <feGaussianBlur stdDeviation="1.7" result="result4"/>
+            <feDiffuseLighting surfaceScale="10">
+                <feDistantLight azimuth="225" elevation="45"/>
+            </feDiffuseLighting>
+            <feBlend in2="SourceGraphic" mode="multiply"/>
+            <feComposite in2="SourceAlpha" operator="in" result="result3"/>
+            <feSpecularLighting in="result4" surfaceScale="5" specularExponent="17.9">
+                <feDistantLight azimuth="225" elevation="45"/>
+            </feSpecularLighting>
+            <feComposite in2="result3" operator="atop"/>
+        </filter>
+    </defs>
+    <text style="line-height:125%" x="7.107" y="876.304" transform="matrix(.90453 0 0 1.10554 14.286 -916.505)"
+          font-weight="400" font-size="30" font-family="sans-serif" letter-spacing="2.71" word-spacing="0" fill="#033"
+          filter="url(#d)">
+        <tspan x="7.107" y="876.304" style="-inkscape-font-specification:'Blackoak Std Heavy'" font-weight="900"
+               font-family="Blackoak Std">ALEX
+        </tspan>
+    </text>
+    <text style="line-height:110.00000238%;-inkscape-font-specification:'Comic Sans MS, Normal';text-align:start"
+          x="82.143" y="75.857" transform="matrix(.986 0 0 1.5534 3.534 -34.268)" font-weight="400" font-size="32.321"
+          font-family="Comic Sans MS" letter-spacing="3.87" word-spacing="0" stroke="#000" stroke-width=".808"
+          stroke-linecap="round" stroke-linejoin="bevel" filter="url(#e)">
+        <tspan x="82.143" y="75.857"
+               style="line-height:110.00000238%;-inkscape-font-specification:'Blackoak Std, Heavy';text-align:start"
+               font-weight="900" font-size="20.2" font-family="Blackoak Std" fill="#e61b00">art21
+        </tspan>
+    </text>
+    <text style="line-height:209.99999046%;-inkscape-font-specification:'Consolas, Bold';text-align:start" x="19.286"
+          y="112.286" font-weight="700" font-size="18.75" font-family="Consolas" letter-spacing=".52"
+          word-spacing="-4.19" fill="#033" stroke-width=".5" stroke-linecap="round" stroke-linejoin="round">
+        <tspan x="19.286" y="112.286"
+               style="line-height:209.99999046%;-inkscape-font-specification:'Minecraftia, Normal';text-align:start"
+               font-weight="400" font-size="15" font-family="Minecraftia">web developer group
+        </tspan>
+    </text>
+</svg>

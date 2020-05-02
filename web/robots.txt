@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Host: alexart21.ru
+Sitemap: https://alexart21.ru/sitemap.xml
