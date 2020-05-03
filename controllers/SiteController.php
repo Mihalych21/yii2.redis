@@ -87,7 +87,7 @@ class SiteController extends Controller
     public function actionMail_ok()
     {
         $request = Yii::$app->request;
-        if ($request->post('index_form') === '1'){ // данные отправлены
+        if ($request->isPost && $request->post('index_form') === '1'){ // данные отправлены
 
         $name = clr_get(Html::encode(mb_ucfirst($request->post('name'))));
         $email = clr_get(Html::encode($request->post('email')));
@@ -172,8 +172,8 @@ class SiteController extends Controller
     public function actionCall()
     {
         $request = Yii::$app->request;
-        /* Форма отправлена */
-        if($request->isPost){
+
+        if($request->isPost  && $request->post('call') === '1'){ // Форма отправлена
             $data = $request->post();
             $name = clr_get(Html::encode(mb_ucfirst($data['callForm']['name'])));
             $tel = clr_get(Html::encode($data['callForm']['tel']));

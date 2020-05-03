@@ -35,16 +35,9 @@ Modal::begin([
         <?= $form->field($model, 'tel')->textInput(['class' => 'phone', 'required' => true])
             ->widget(MaskedInput::className(), [
                 'mask' => '+7 (999) - 999 - 99 - 99',
-                /*'clientOptions' => [
-                    'placeholder' => '+7 (999) - 999 - 99 - 99'
-                ],*/
-
             ]);
         ?>
-
-
-        <!--        --><?//= $form->field($model, 'robot')->checkboxList(['r' => '__Я не робот'])->label(false); ?>
-
+        <input type="hidden" name="call" value="1">
         <div class="form-group">
             <?= Html::submitButton('жду звонка!', ['class' => 'mail_bt', 'id' => 'call-btn', 'style' => 'width:180px']) ?>
         </div>
