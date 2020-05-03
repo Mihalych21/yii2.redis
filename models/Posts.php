@@ -59,11 +59,11 @@ class Posts extends \yii\db\ActiveRecord
         /* Отправка почты */
         $subject = 'Письмо с сайта Alex-art';
         $body = 'Вам пишет <b style="font-size: 120%;text-shadow: 0 1px 0 #e61b05">' . $name . '</b><br>' . clr_get($email) . '<br>Tel: ' . $tel . '<br><br><div style="font-style: italic">' . nl2br(clr_get($msg)) . '</div>' .
-            '<br><br>Сообщение отправлено с сайта <b>https://alexart21.ru</b>';
+            '<br><br>Сообщение отправлено с сайта <b>https:' . Yii::$app->params['siteUrl'] . '</b>';
 
-        $success = Yii::$app->mailer->compose()// Yii::$app->params['adminEmail'] [clr_get($this->email) => $name]
-        ->setTo('mail@alexart21.ru')
-            ->setFrom(['mail@alexart21.ru' => 'alexart21.ru'])
+        $success = Yii::$app->mailer->compose()
+        ->setTo(Yii::$app->params['email'])
+            ->setFrom([Yii::$app->params['email'] => Yii::$app->params['siteUrl']])
             ->setReplyTo([$email => $name])
             ->setSubject($subject)
             ->setHtmlBody($body)

@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'siteUrl' =>'alexart21.ru',
-    'company' => 'Company',
-    'admin' => 'admin_alex',
-    'email' => 'mail@alexart21.ru',
-    'tel1' => '+7(999) 999-99-91'
+    'siteUrl' =>'site.ru',
+    'company' => 'Alex-art21',
+    'email' => 'mail@site.ru',
+    'tel1' => '+7(999) 999-99-99',
+    'tel1_min' => '+79999999999'
 ];

@@ -93,9 +93,9 @@ $config = [
 //            'useFileTransport' => false, // на боевом поставить false
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'mail.alexart21.ru',
-                'username' => 'mail@alexart21.ru',
-                'password' => 'cbyuekzhyjcnm_211',
+                'host' => 'mail.' . Yii::$app->params['siteUrl'],
+                'username' => 'mail' .  Yii::$app->params['siteUrl'],
+                'password' => 'password',
                 'port' => '465',
                 'encryption' => 'ssl',
             ],

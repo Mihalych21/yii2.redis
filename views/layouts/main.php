@@ -125,8 +125,7 @@ AppAsset::register($this);
                                 </li>
                                 <li class="tel">
                                     <span class="pre">тел.</span>
-                                    <a href="tel:+79871250651" title="позвонить" itemprop="telephone">+7 (987)
-                                        125-06-51</a>
+                                    <a href="tel:<?= Yii::$app->params['tel1_min'] ?>" title="позвонить" itemprop="telephone"><?= Yii::$app->params['tel1'] ?></a>
                                 </li>
                                 <li class="smal" itemprop="openingHours" datetime="Mo-Fr 09:00−18:00">
                                     Пн - Пт 9<sup>00</sup> - 18<sup>00</sup>
@@ -270,7 +269,7 @@ AppAsset::register($this);
     <div style="width:100%;height:10px"></div>
     <footer class="innerShadow gradient3">
         &copy; <strong>Alexart21</strong> web developer group 2014&mdash;2020 тел. <strong
-                class="corpid strong">+7 (987) 125-06-51</strong><br/>
+                class="corpid strong"><?= Yii::$app->params['tel1'] ?></strong><br/>
         <strong>Создание и продвижение сайтов в Чебоксарах</strong><br/>
         <span>Powered by APACHE/PHP/MYSQL</span><br/>
         <span>Ваши персональные данные могут быть использованы только в соответстввии с ФЗ №152 <a href="/politic">о персональных данных.</a></span>
