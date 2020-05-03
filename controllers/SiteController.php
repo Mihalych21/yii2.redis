@@ -87,6 +87,7 @@ class SiteController extends Controller
     public function actionMail_ok()
     {
         $request = Yii::$app->request;
+        if ($request->post('index_form') === '1'){ // данные отправлены
 
         $name = clr_get(Html::encode(mb_ucfirst($request->post('name'))));
         $email = clr_get(Html::encode($request->post('email')));
@@ -98,6 +99,7 @@ class SiteController extends Controller
         $success = $post->mailSend($name, $email, $tel, $msg);
 
         return $this->renderAjax('mail_ok', compact('success',  'name'));
+        }
     }
 
     public function actionSozdanie() {

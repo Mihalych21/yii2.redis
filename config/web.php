@@ -74,6 +74,9 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'dfghdhdh2353w46tvw354645',
+            'csrfCookie' => [
+                'httpOnly' => true,
+            ],
             'baseUrl' => '', // для чпу надо
         ],
         'user' => [

@@ -410,6 +410,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => $data[0]['descript
     <textarea class="input" name="text" id="msg" rows="4" placeholder="Введите текст сообщения" required="true"></textarea>
     <label for="msg">Текст</label>
 </div>
+    <input name="index_form" type="hidden" value="1">
 <button type="submit" class="success-button animated bounceInDown wow"  data-wow-delay="0.1s">Отправить</button>
 <?php ActiveForm::end(); ?>
 
