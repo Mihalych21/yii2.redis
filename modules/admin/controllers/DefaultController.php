@@ -30,15 +30,30 @@ class DefaultController extends AppAdminController
         if (Yii::$app->request->isAjax) {
 
             // таблица Content
+            // start transaction
+            $flag = true;
+            $transaction = Yii::$app->db->beginTransaction();
             $lastContent = Content::find()->where(true)->all();
 
             foreach ($lastContent as $last) {
                 $time = time() - rand(60, 300); // разброс от 1 до 5 минут
                 $last->last_mod = $time;
-                $last->save();
+                $res = $last->save();
+                $flag = ($flag && $res) ? true : false;
+                if (!$flag){
+                    break;
+                }
             }
 
-            return $this->renderFile('@app/modules/admin/views/alert.php');
+            if ($flag){
+                $transaction->commit();
+                $msg = 'Успешно!';
+            }else{
+                $transaction->rollBack();
+                $msg = '<span style="color:red">Сбой!</span>';
+            }
+
+            return $this->renderFile('@app/modules/admin/views/alert.php', compact('msg'));
         }
     }
 
@@ -47,8 +62,11 @@ class DefaultController extends AppAdminController
     {
         if (Yii::$app->request->isAjax) {
             if (Yii::$app->cache->flush()) {
-                return $this->renderFile('@app/modules/admin/views/alert.php');
+                $msg = 'Успешно!';
+            }else{
+                $msg = '<span style="color:red">Сбой!</span>';
             }
+            return $this->renderFile('@app/modules/admin/views/alert.php', compact('msg'));
         }
     }
 

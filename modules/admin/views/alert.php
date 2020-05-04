@@ -16,11 +16,11 @@ Alert::begin([
 ]);
 ?>
 
-<h3>Успешно !</h3>;
+<h3><?= $msg ?></h3>
 
 <?php
 Alert::end();
 ?>
 <script>
-    setTimeout("$('.alert-success').remove()", 2000);
+    setTimeout("$('.alert-success').remove()", 3000);
 </script>
