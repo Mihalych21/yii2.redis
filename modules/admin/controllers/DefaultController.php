@@ -28,6 +28,8 @@ class DefaultController extends AppAdminController
     public function actionLast()
     {
         if (Yii::$app->request->isAjax) {
+            // очищаем кэш
+            Yii::$app->cache->flush();
 
             // таблица Content
             // start transaction

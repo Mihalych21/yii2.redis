@@ -32,7 +32,7 @@ $config = [
     ],
     'components' => [
         /* Redis */
-        /*'redis' => [
+        'redis' => [
             'class' => 'yii\redis\Connection',
             'hostname' => 'localhost',
             'port' => 6379,
@@ -45,11 +45,11 @@ $config = [
                 'port' => 6379,
                 'database' => 0,
             ]
-        ],*/
-        /* Файловый кэш */
-        'cache' => [
-            'class' => 'yii\caching\FileCache',
         ],
+        /* Файловый кэш */
+        /*'cache' => [
+            'class' => 'yii\caching\FileCache',
+        ],*/
         'view' => [
             'class' => '\rmrevin\yii\minify\View',
             'enableMinify' => !YII_DEBUG,

@@ -53,9 +53,9 @@ class Content extends ActiveRecord
             return $data;
         }
         /* Без хранимой процедуры */
-        $sql = "SELECT * FROM content WHERE page = '$act'";
+//        $sql = "SELECT * FROM content WHERE page = '$act'";
         /* Хранимая процедура */
-//        $sql = "CALL getContent('$act')";
+        $sql = "CALL getContent('$act')";
         $data = ActiveRecord::findBySql($sql)->asArray()->all();
 //        var_dump($data);die;
         // set cache
