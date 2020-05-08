@@ -1,20 +1,20 @@
 {
-    "_readme": [
-        "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
-        "This file is @generated automatically"
-    ],
-    "content-hash": "b7836e6124004acc1c9e1348f92d443f",
-    "packages": [
-        {
-            "name": "abeautifulsite/simpleimage",
-            "version": "2.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/claviska/SimpleImage.git",
-                "reference": "54a99d302355d22ee00d9842a8dbe101a52203d8"
-            },
-            "dist": {
+  "_readme": [
+    "This file locks the dependencies of your project to a known state",
+    "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+    "This file is @generated automatically"
+  ],
+  "content-hash": "58982b684b38e19fedaf164f636f9bbd",
+  "packages": [
+    {
+      "name": "abeautifulsite/simpleimage",
+      "version": "2.7.0",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/claviska/SimpleImage.git",
+        "reference": "54a99d302355d22ee00d9842a8dbe101a52203d8"
+      },
+      "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/claviska/SimpleImage/zipball/54a99d302355d22ee00d9842a8dbe101a52203d8",
                 "reference": "54a99d302355d22ee00d9842a8dbe101a52203d8",
@@ -1599,26 +1599,67 @@
                 }
             ],
             "description": "Symfony polyfill backporting some PHP 7.1+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "time": "2020-02-27T09:26:54+00:00"
+          "homepage": "https://symfony.com",
+          "keywords": [
+            "compatibility",
+            "polyfill",
+            "portable",
+            "shim"
+          ],
+          "time": "2020-02-27T09:26:54+00:00"
         },
+    {
+      "name": "tmukherjee13/yii2-reverse-migration",
+      "version": "v2.3.2",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/tmukherjee13/yii2-reverse-migration.git",
+        "reference": "485b14ec265f56b5256b2e9365e97b7c2202b404"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/tmukherjee13/yii2-reverse-migration/zipball/485b14ec265f56b5256b2e9365e97b7c2202b404",
+        "reference": "485b14ec265f56b5256b2e9365e97b7c2202b404",
+        "shasum": ""
+      },
+      "require": {
+        "yiisoft/yii2": ">2.0.6"
+      },
+      "type": "yii2-extension",
+      "autoload": {
+        "psr-4": {
+          "tmukherjee13\\migration\\": ""
+        }
+      },
+      "notification-url": "https://packagist.org/downloads/",
+      "license": [
+        "BSD-3-Clause"
+      ],
+      "authors": [
         {
-            "name": "tubalmartin/cssmin",
-            "version": "v4.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tubalmartin/YUI-CSS-compressor-PHP-port.git",
-                "reference": "3cbf557f4079d83a06f9c3ff9b957c022d7805cf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tubalmartin/YUI-CSS-compressor-PHP-port/zipball/3cbf557f4079d83a06f9c3ff9b957c022d7805cf",
+          "name": "Tarun Mukherjee",
+          "email": "tmukherjee13@gmail.com"
+        }
+      ],
+      "description": "Generate working migration classes from existing Database",
+      "keywords": [
+        "database",
+        "migration",
+        "yii2"
+      ],
+      "time": "2018-06-24T15:50:32+00:00"
+    },
+    {
+      "name": "tubalmartin/cssmin",
+      "version": "v4.1.1",
+      "source": {
+        "type": "git",
+        "url": "https://github.com/tubalmartin/YUI-CSS-compressor-PHP-port.git",
+        "reference": "3cbf557f4079d83a06f9c3ff9b957c022d7805cf"
+      },
+      "dist": {
+        "type": "zip",
+        "url": "https://api.github.com/repos/tubalmartin/YUI-CSS-compressor-PHP-port/zipball/3cbf557f4079d83a06f9c3ff9b957c022d7805cf",
                 "reference": "3cbf557f4079d83a06f9c3ff9b957c022d7805cf",
                 "shasum": ""
             },
