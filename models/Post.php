@@ -14,14 +14,14 @@ use Yii;
  * @property string $body
  * @property string $date
  */
-class Posts extends \yii\db\ActiveRecord
+class Post extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'posts';
+        return 'post';
     }
 
     /**
@@ -46,11 +46,11 @@ class Posts extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Имя',
             'email' => 'Email',
-            'tel' => 'Tel',
-            'body' => 'Body',
-            'date' => 'Date',
+            'tel' => 'Тел.',
+            'body' => 'Текст',
+            'date' => 'Дата',
         ];
     }
 

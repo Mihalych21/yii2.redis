@@ -4,12 +4,12 @@ namespace app\modules\admin\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Posts;
+use app\models\Post;
 
 /**
  * PostSearch represents the model behind the search form of `app\models\Post`.
  */
-class PostsSearch extends Posts
+class PostSearch extends Post
 {
     /**
      * {@inheritdoc}
@@ -40,7 +40,7 @@ class PostsSearch extends Posts
      */
     public function search($params)
     {
-        $query = Posts::find()->orderBy(['id' => SORT_DESC]);
+        $query = Post::find()->orderBy(['id' => SORT_DESC]);
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([

@@ -3,8 +3,8 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
-use app\models\Posts;
-use app\modules\admin\models\PostsSearch;
+use app\models\Post;
+use app\modules\admin\models\PostSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * PostController implements the CRUD actions for Post model.
  */
-class PostsController extends Controller
+class PostController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -35,7 +35,7 @@ class PostsController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new PostsSearch();
+        $searchModel = new PostSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -74,12 +74,12 @@ class PostsController extends Controller
      * Finds the Post model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return Posts the loaded model
+     * @return Post the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Posts::findOne($id)) !== null) {
+        if (($model = Post::findOne($id)) !== null) {
             return $model;
         }
 
@@ -88,9 +88,9 @@ class PostsController extends Controller
 
     public function actionDel_all() // Очистка всей табли `post`
     { // Удаление всех писем
-        $res = Yii::$app->db->createCommand()->truncateTable('posts')->execute();
+        $res = Yii::$app->db->createCommand()->truncateTable('post')->execute();
         if ($res == 0) {
-            return $this->redirect('/admin/posts');
+            return $this->redirect('/admin/post');
         }
     }
 }

@@ -31,6 +31,6 @@ $user = strtolower(Yii::$app->user->identity->username);
 <!--    --><?php //if ($user === Yii::$app->params['admin_alex']) : ?>
         <h3><a href="/admin/content">Содержимое основных страниц</a> (таблица Content)</h3>
 <!--    --><?php //endif; ?>
-    <h3><a href="/admin/posts">Входящие письма</a></h3>
+    <h3><a href="/admin/post">Входящие письма</a></h3>
     <h3><a href="/admin/callback">Заказы обратных звонков</a></h3>
 </div>

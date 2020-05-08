@@ -7,7 +7,7 @@ use app\models\Content;
 use app\models\LoginForm;
 use app\models\CallForm;
 use app\models\Callback;
-use app\models\Posts;
+use app\models\Post;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -89,14 +89,14 @@ class SiteController extends Controller
         $request = Yii::$app->request;
         if ($request->isPost && $request->post('index_form') === '1'){ // данные отправлены
 
-        $name = clr_get(Html::encode(mb_ucfirst($request->post('name'))));
-        $email = clr_get(Html::encode($request->post('email')));
+            $name = clr_get(Html::encode(ucfirst($request->post('name'))));
+            $email = clr_get(Html::encode($request->post('email')));
         $tel = clr_get(Html::encode($request->post('tel')));
         $msg = clr_get(Html::encode($request->post('text')));
 
         // отправка email и запись письма в БД
-        $post = new Posts();
-        $success = $post->mailSend($name, $email, $tel, $msg);
+            $post = new Post();
+            $success = $post->mailSend($name, $email, $tel, $msg);
 
         return $this->renderAjax('mail_ok', compact('success',  'name'));
         }
@@ -175,7 +175,7 @@ class SiteController extends Controller
 
         if($request->isPost  && $request->post('call') === '1'){ // Форма отправлена
             $data = $request->post();
-            $name = clr_get(Html::encode(mb_ucfirst($data['callForm']['name'])));
+            $name = clr_get(Html::encode(ucfirst($data['callForm']['name'])));
             $tel = clr_get(Html::encode($data['callForm']['tel']));
 
             // Отправка email и запись в БД
