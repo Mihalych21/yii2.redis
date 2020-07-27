@@ -1,5 +1,5 @@
 <?php
-use yii\bootstrap\Modal;
+use yii\bootstrap4\Modal;
 
 if ($success) {
     $msg = '<h3 style="color:green;text-align: center">Спасибо,'. $name .'  мы с Вами обязательно свяжемся!</h3>';
@@ -17,11 +17,8 @@ Modal::end();
 <script>
     $('#mail-modal').modal();
 
-    // через 4 сек удаляем сообщение
-    var timerId = setInterval(function() {
-        $('#mail-modal').modal('hide');
-    }, 3000);
+     // через 4 сек удаляем сообщение
     setTimeout(function() {
-        clearInterval(timerId);
+        $('#mail-modal').modal('hide');
     }, 4000);
 </script>

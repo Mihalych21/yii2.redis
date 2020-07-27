@@ -39,8 +39,8 @@ $this->registerMetaTag(['name' => 'description', 'content' => $data[0]['descript
     <div id="uslugi_outer" class="list_block">
         <ul id="uslugi">
             <li>
-                <span class="l1"></span> <strong><a title="создание сайтов" class="list_link link-anim"
-                                                    href="/sozdanie_saitov/">создание сайтов</a></strong>
+                <span class="l1"></span> <strong><a title="создание сайтов" class="list_link link-anim portf-call"
+                                                    href="/sozdanie">создание сайтов</a></strong>
             </li>
             <li>
                 <span class="l1"></span>
@@ -56,7 +56,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => $data[0]['descript
             <li>
                 <span class="l1"></span>
                 <strong>
-                    <a title="адаптивная верстка" class="list_link link-anim" href="/sozdanie_saitov/#response">адаптивная
+                    <a title="адаптивная верстка" class="list_link link-anim" href="/sozdanie#response">адаптивная
                         верстка</a>
                 </strong>
             </li>
@@ -75,14 +75,14 @@ $this->registerMetaTag(['name' => 'description', 'content' => $data[0]['descript
                 <strong>
                     <abbr
                             title="англ. search engine optimization — комплекс мер по внутренней и внешней оптимизации, для поднятия позиций сайта в результатах выдачи поисковых систем">SEO </abbr><a
-                            title="продвижение сайтов" class="list_link link-anim" href="/prodvijenie_saitov/">продвижение
+                            title="продвижение сайтов" class="list_link link-anim portf-call" href="/prodvijenie">продвижение
                         сайтов</a>
                 </strong>
             </li>
             <li>
                 <span class="l1"></span>
                 <strong>
-                    <a title="контекстная реклама" class="list_link link-anim" href="/prodvijenie_saitov/#context">контекстная
+                    <a title="контекстная реклама" class="list_link link-anim" href="/prodvijenie#context">контекстная
                         реклама</a>
                     на Яндекс и Google</strong>
             </li>
@@ -105,7 +105,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => $data[0]['descript
     <div id="site">
         <div id="s1">
             <div class="site_block">
-                <a href="/sozdanie-saitov#sait_vizitka" title="сайт визитка">
+                <a href="/sozdanie#sait_vizitka" class="portf-call" title="сайт визитка">
                     <h2 class="h_2 punkt link-anim">Сайт визитка</h2>
                 </a>
                 <p>
@@ -145,7 +145,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => $data[0]['descript
         </div>
         <div id="s2">
             <div class="site_block">
-                <a href="/sozdanie-saitov#korporativniy_sait" title="корпоративный сайт">
+                <a href="/sozdanie#korporativniy_sait" class="portf-call" title="корпоративный сайт">
                     <h2 class="h_2 punkt link-anim">Корпоративный сайт</h2>
                 </a>
                 <p>
@@ -187,7 +187,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => $data[0]['descript
         </div>
         <div id="s3">
             <div class="site_block">
-                <a href="/sozdanie-saitov#internet_magazin" title="интернет магазин">
+                <a href="/sozdanie#internet_magazin" class="portf-call" title="интернет магазин">
                     <h2 class="h_2 punkt link-anim">Интернет магазин</h2>
                 </a>
                 <p>
@@ -285,7 +285,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => $data[0]['descript
         var etap = [
             "Уяснение задач заказчика, определение целевой аудитории сайта, написание брифа(в народном фольклоре ТЗ).Прототипирование или составление эскиза где определяются расположения элементов страниц.",
             "Определение концепции дизайна.Цветовое и графическое решение будущего сайта, выбор шрифтов и др.",
-            "Страницы сайта должны корректно отображаться во всех браузерах.Как правило хорошего тона нынче можно говорить об <a href=\"/sozdanie_saitov/#response\"><b> адаптивной верстке</b></a> т.е. сайт должен быть хорошо читаем без потери функционала и на смартфонах и на планшетах и на настольных пк, и даже на тех устройствах, которые появятся в будущем.",
+            "Страницы сайта должны корректно отображаться во всех браузерах.Как правило хорошего тона нынче можно говорить об <a class=\"portf-call\" href=\"/sozdanie#response\"><b> адаптивной верстке</b></a> т.е. сайт должен быть хорошо читаем без потери функционала и на смартфонах и на планшетах и на настольных пк, и даже на тех устройствах, которые появятся в будущем.",
             "Программирование идет параллельно с версткой.Постановка сайта \"на движок\" выбранный заказчиком(или разработанный нами).Проектирование и наполнение контентом базы данных(если требуется).Можем предложить собственную CMS которая в отличии от \"универсальных\" будет заточена под Ваш конкретный сайт и очень проста в использовании.",
             "Наполнение содержимым.Если сайт будет продвигаться в поисковиках, пишутся грамотные SEO тексты под поисковые запросы по ключевым словам.",
             "Здесь идет полная проверка работоспособности сайта.Так же тестируется стойкость к XSS атакам и SQL инъекциям.",
@@ -351,11 +351,12 @@ $this->registerMetaTag(['name' => 'description', 'content' => $data[0]['descript
     <pre>joomla  wordpress drupal     yii2</pre>
 </div>
 <!-- </section> -->
+    <a name="contacts" rel="nofollow"></a>
     <br>
     <br>
     <br>
 <!--noindex-->
-    <a name="contacts"></a>
+
 <div class="h1 text-center">Возникли вопросы ?</div>
 <div class="h2 text-center">Напишите нам и получите исчерпывающую консультацию.</div>
 <br>

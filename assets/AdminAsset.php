@@ -28,7 +28,7 @@ class AdminAsset extends AssetBundle
     public $depends = [
 //        'css/style.css',
 //        'yii\web\JQueryAsset',
-        'yii\bootstrap\BootstrapPluginAsset',
+        'yii\bootstrap4\BootstrapPluginAsset',
     ];
 
     public $jsOptions = ['position' => \yii\web\View::POS_HEAD];

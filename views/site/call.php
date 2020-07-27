@@ -1,7 +1,7 @@
 <?php
 //die('view');
-use yii\bootstrap\ActiveForm;
-use yii\bootstrap\Modal;
+use yii\bootstrap4\ActiveForm;
+use yii\bootstrap4\Modal;
 use yii\helpers\Html;
 use yii\widgets\MaskedInput;
 use yii\widgets\Pjax;
@@ -11,7 +11,7 @@ $this->title = 'Call';
 <?php
 Modal::begin([
     'id' => 'callback',
-    'header' => '<h3>Укажите Ваш номер телефона и мы перезвоним Вам</h3>',
+    'title' => '<h3>Укажите Ваш номер телефона и мы перезвоним Вам</h3>',
     //    'footer' => 'TEST'
 ]);
 ?>

@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\User;
 use yii\helpers\Html;
 use app\models\Content;
 use app\models\LoginForm;
@@ -15,7 +16,7 @@ use yii\web\Controller;
 
 class SiteController extends Controller
 {
-    /*public function actionError()
+        /*public function actionError()
     {
         $errorCode = Yii::$app->errorHandler->exception->statusCode;
         $errorMsg = Yii::$app->errorHandler->exception->getMessage();
@@ -35,7 +36,7 @@ class SiteController extends Controller
                 'only' => ['logout'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['login', 'logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -46,6 +47,23 @@ class SiteController extends Controller
                 'actions' => [
                     'logout' => ['post'],
                 ],
+            ],
+            'rateLimiter' => [
+                // сторонняя фича. Пишется в кэш.Бд не трогается.
+                'class' => \ethercreative\ratelimiter\RateLimiter::className(),
+                'only' => ['login'],
+                // The maximum number of allowed requests
+                'rateLimit' => Yii::$app->params['rateLimit'],
+                // The time period for the rates to apply to
+                'timePeriod' => 60,
+                // Separate rate limiting for guests and authenticated users
+                // Defaults to true
+                // - false: use one set of rates, whether you are authenticated or not
+                // - true: use separate ratesfor guests and authenticated users
+                'separateRates' => false,
+                // Whether to return HTTP headers containing the current rate limiting information
+                'enableRateLimitHeaders' => false,
+                'errorMessage' => 'Лимит запросов исчерпан. Не более ' . Yii::$app->params['rateLimit'] . ' попыток в минуту',
             ],
         ];
     }
@@ -135,9 +153,11 @@ class SiteController extends Controller
      *
      * @return string
      */
+
     public function actionLogin()
     {
         $this->layout = 'login';
+//        die('HERRRRE');
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }

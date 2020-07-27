@@ -28,18 +28,12 @@ AdminAsset::register($this);
             'brandLabel' => 'Powered by <span style="text-shadow: 1px 1px red">Mihalych21</span>',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
-                'class' => 'navbar-inverse navbar-fixed-top',
+                'class' => 'navbar navbar-expand navbar-dark bg-dark',
             ],
         ]);
         ?>
-        <?php if (strtolower(Yii::$app->user->identity->username) === Yii::$app->params['admin']) {
-            $_user =  Yii::$app->params['admin'] . '<span style="text-shadow: none;text-transform: lowercase"> (администратор)</span>';
-        } else {
-            $_user = Yii::$app->user->identity->username . '<span style="text-shadow: none;text-transform: lowercase"> (модератор)</span>';
-        }
-        ?>
         <span class="user"
-              style="color: #000;background: #fff;line-height: 50px;text-transform: uppercase;float: right;margin-left: 1em;padding: 0 1em"><?= $_user ?></span>
+              style="color: #000;background: #fff;line-height: 50px;text-transform: uppercase;float: right;margin-left: 1em;padding: 0 1em"><?= Yii::$app->user->identity->username ?></span>
 
         <?php
         echo Nav::widget([

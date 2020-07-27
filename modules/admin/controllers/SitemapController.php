@@ -12,9 +12,10 @@ use Yii;
 use app\modules\admin\models\Galery;
 use yii\db\ActiveRecord;
 use app\modules\admin\models\Content;
+use yii\web\Controller;
 
 
-class SitemapController extends AppAdminController
+class SitemapController extends Controller
 {
     public function actionIndex()
     {
@@ -24,7 +25,7 @@ class SitemapController extends AppAdminController
 
         /* Таблица Content */
 
-        $sql = "SELECT `page`, `last_mod` FROM content WHERE id > 0";
+        $sql = 'SELECT `page`, `last_mod` FROM content WHERE 1';
         $content = Content::findBySql($sql)->asArray()->all();
         foreach ($content as $data) {
             if ($data['page'] != 'index') {

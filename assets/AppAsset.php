@@ -22,7 +22,7 @@ class AppAsset extends AssetBundle
     public $depends = [
 //        'yii\web\JQueryAsset',
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapPluginAsset',
+        'yii\bootstrap4\BootstrapPluginAsset',
     ];
 
     public $jsOptions = ['position' => \yii\web\View::POS_END];

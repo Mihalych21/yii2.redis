@@ -7,7 +7,7 @@
 </style>
 <br>
 <?php
-use yii\bootstrap\Alert;
+use yii\bootstrap4\Alert;
 
 Alert::begin([
     'options' => [

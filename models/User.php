@@ -3,6 +3,7 @@
 namespace app\models;
 
 use yii\db\ActiveRecord;
+//use yii\filters\RateLimitInterface;
 
 class User extends ActiveRecord implements \yii\web\IdentityInterface
 {

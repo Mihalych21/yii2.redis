@@ -4,15 +4,28 @@ namespace app\modules\admin\controllers;
 
 use Yii;
 use yii\web\Controller;
-use yii\db\ActiveRecord;
+use yii\filters\AccessControl;
 use app\modules\admin\models\Content;
-use app\modules\admin\models\Galery;
-
 /**
  * Default controller for the `admin` module
  */
-class DefaultController extends AppAdminController
+class DefaultController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'], // для авторизованных (в нашем сл. для админа)
+                    ]
+                ],
+            ],
+        ];
+    }
+
     /**
      * Renders the index view for the module
      * @return string

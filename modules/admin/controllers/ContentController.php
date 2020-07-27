@@ -14,7 +14,7 @@ use yii\filters\AccessControl;
 /**
  * ContentController implements the CRUD actions for Content model.
  */
-class ContentController extends AppAdminController
+class ContentController extends Controller
 {
 
     /**
