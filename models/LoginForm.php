@@ -16,7 +16,8 @@ class LoginForm extends Model
     public $username;
     public $password;
     public $rememberMe = false;
-    public $verifyCode;
+//    public $verifyCode;
+    public $reCaptcha;
 
     private $_user = false;
 
@@ -33,7 +34,16 @@ class LoginForm extends Model
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
             // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
+//            ['verifyCode', 'captcha'],
+            /*[['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator2::className(),
+                'secret' => '6LcFcbsZAAAAAH50xeZ92H2_CsdSD_lIP81ftj6T', // unnecessary if reСaptcha is already configured
+                'uncheckedMessage' => 'Подтвердите, что вы не робот'],*/
+            //reCaptcha v3
+            [['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator3::className(),
+                'secret' => '6Ld6d7sZAAAAAOaxD_t_a-VY3rMyTzzQdHkpSuF_', // unnecessary if reСaptcha is already configured
+                'threshold' => 0.5,
+                'action' => '/login',
+            ],
         ];
     }
 
@@ -43,7 +53,8 @@ class LoginForm extends Model
             'username' => 'Логин',
             'password' => 'Пароль',
             'rememberMe' => 'Запомнить меня',
-            'verifyCode' => 'Введите код',
+//            'verifyCode' => 'Введите код',
+            'reCaptcha' => '',
         ];
     }
 

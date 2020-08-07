@@ -32,24 +32,24 @@ $config = [
     ],
     'components' => [
         /* Redis */
-        'redis' => [
+        /*'redis' => [
             'class' => 'yii\redis\Connection',
             'hostname' => 'localhost',
             'port' => 6379,
             'database' => 0,
-        ],
-        'cache' => [
+        ],*/
+        /*'cache' => [
             'class' => 'yii\redis\Cache',
             'redis' => [
                 'hostname' => 'localhost',
                 'port' => 6379,
                 'database' => 0,
             ]
-        ],
-        /* Файловый кэш */
-        /*'cache' => [
-            'class' => 'yii\caching\FileCache',
         ],*/
+        /* Файловый кэш */
+        'cache' => [
+            'class' => 'yii\caching\FileCache',
+        ],
         'view' => [
             'class' => '\rmrevin\yii\minify\View',
             'enableMinify' => !YII_DEBUG,
@@ -122,6 +122,14 @@ $config = [
                 '<action:(index|sozdanie|prodvijenie|parsing|portfolio|about|contacts|login|logout|mail_ok|politic|modal|call|call_ok)>' => 'site/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ],
+        ],
+
+        'reCaptcha' => [
+            'class' => 'himiklab\yii2\recaptcha\ReCaptchaConfig',
+            /*'siteKeyV2' => '6LcFcbsZAAAAALP2l0KCjvTUD-X2dyPcEGPcXaq7',
+            'secretV2' => '6LcFcbsZAAAAAH50xeZ92H2_CsdSD_lIP81ftj6T',*/
+            'siteKeyV3' => '6Ld6d7sZAAAAAL_nF5e_cXGW9SZl0o9S1ij0e8l7',
+            'secretV3' => '6Ld6d7sZAAAAAOaxD_t_a-VY3rMyTzzQdHkpSuF_',
         ],
     ],
     'controllerMap' => [

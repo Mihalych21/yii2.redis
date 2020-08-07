@@ -77,7 +77,7 @@ class ContentController extends Controller
         $model = $this->findModel($id);
         /* Режим contenteditable */
         if ($contenteditable == 1) {
-            $this->layout = 'contenteditable';
+//            $this->layout = 'contenteditable';
             if (Yii::$app->request->isAjax) {
                 $model->page_text = $_POST['page_text'];
                 if ($model->save()) {

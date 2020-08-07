@@ -14,15 +14,12 @@ class GaleryAsset extends AssetBundle
 //  'css/animate.css',
         'css/animate.min.css',
 //  'css/font-awesome.css',
-        'css/font-awesome.min.css',
-        'css/galery.css',
+//        'css/font-awesome.min.css',
+//        'css/galery.css',
 //        'css/galery.min.css',
     ];
     public $js = [
-        'js/scripts.min.js',
-//        'js/scrollReveal.js',
-//        'js/indexForm.js',
-//        'js/slide.js',
+        'js/scripts.js',
         'js/wow.min.js',
     ];
     public $depends = [

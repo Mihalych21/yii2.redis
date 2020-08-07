@@ -24,10 +24,11 @@ class AdminAsset extends AssetBundle
     public $js = [
 //        'js/jquery-1.11.2.min.js',
 //        'js/script.js',
+        'js/admin_script.js',
     ];
     public $depends = [
 //        'css/style.css',
-//        'yii\web\JQueryAsset',
+        'yii\web\JQueryAsset',
         'yii\bootstrap4\BootstrapPluginAsset',
     ];
 

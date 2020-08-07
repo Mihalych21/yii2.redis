@@ -47,9 +47,9 @@ class DefaultController extends Controller
             // таблица Content
             // start transaction
             $flag = true;
-            $transaction = Yii::$app->db->beginTransaction();
+//            $transaction = Yii::$app->db->beginTransaction();
             $lastContent = Content::find()->where(true)->all();
-
+//            debug($lastContent);die;
             foreach ($lastContent as $last) {
                 $time = time() - rand(60, 300); // разброс от 1 до 5 минут
                 $last->last_mod = $time;
@@ -61,10 +61,10 @@ class DefaultController extends Controller
             }
 
             if ($flag){
-                $transaction->commit();
+//                $transaction->commit();
                 $msg = 'Успешно!';
             }else{
-                $transaction->rollBack();
+//                $transaction->rollBack();
                 $msg = '<span style="color:red">Сбой!</span>';
             }
 

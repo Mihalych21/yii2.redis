@@ -17,7 +17,7 @@ class AdminContentEditableAsset extends AssetBundle
 ];
     public $depends = [
 //        'css/style.css',
-        'yii\web\JQueryAsset',
+//        'yii\web\JQueryAsset',
         'yii\bootstrap\BootstrapPluginAsset',
     ];
 

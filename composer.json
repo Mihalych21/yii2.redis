@@ -36,7 +36,8 @@
     "yiisoft/yii2-redis": "~2.0.0",
     "tmukherjee13/yii2-reverse-migration": "*",
     "yiisoft/yii2-bootstrap4": "~2.0.6",
-    "ethercreative/yii2-ip-ratelimiter": "1.*"
+    "ethercreative/yii2-ip-ratelimiter": "1.*",
+    "himiklab/yii2-recaptcha-widget" : "*"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.0.0",
