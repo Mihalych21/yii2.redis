@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\IndexForm;
 use app\models\User;
 use yii\helpers\Html;
 use app\models\Content;
@@ -51,7 +52,7 @@ class SiteController extends Controller
             'rateLimiter' => [
                 // сторонняя фича. Пишется в кэш.Бд не трогается.
                 'class' => \ethercreative\ratelimiter\RateLimiter::className(),
-                'only' => ['login'],
+                'only' => ['login', 'mail_ok'],
                 // The maximum number of allowed requests
                 'rateLimit' => Yii::$app->params['rateLimit'],
                 // The time period for the rates to apply to
@@ -96,9 +97,10 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $model = new Content();
+        $indexForm = new IndexForm();
         $data = $model->getContent();
 
-        return $this->render('index', ['data' => $data]);
+        return $this->render('index', ['data' => $data, 'indexForm' => $indexForm]);
     }
 
     /* Отправка почты с главной страницы */
@@ -115,8 +117,10 @@ class SiteController extends Controller
         // отправка email и запись письма в БД
             $post = new Post();
             $success = $post->mailSend($name, $email, $tel, $msg);
+            //
+            $statusCode = Yii::$app->response->statusCode;
 
-        return $this->renderAjax('mail_ok', compact('success',  'name'));
+        return $this->renderAjax('mail_ok', compact('success', 'statusCode',  'name'));
         }
     }
 

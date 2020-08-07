@@ -293,7 +293,22 @@ AppAsset::register($this);
 </div>-->
 <?php $this->endBody() ?>
 <script>
+    /* Кастомный алерт */
+    function alert(content,afterFunction){
+        $('<div class="alertm_overlay"></div>').appendTo('body');
+        $('<div class="alertm_all"><a href="#" onclick="alert_close('+afterFunction+'); return false" class="alertm_close">x</a><div class="alertm_wrapper">'+content+'</div><div class="alertm_but" onclick="alert_close('+afterFunction+'); return false">OK</div></div>').appendTo('body');
+        $(".alertm_overlay, .alertm_all").fadeIn("slow");
+        $('.alertm_all').css('margin-top', (-1)*($('.alertm_all').height())+'px');
+    }
+    function alert_close(afterFunctionClouse){
+        $(".alertm_overlay, .alertm_all").remove();
+        afterFunctionClouse;
+    }
+    /**/
+    // alert('MY ALERT');
+    /* "шторка" в шапке */
     var shtorka = document.querySelector('.shtorka');
+    /**/
     $(document).on('pjax:beforeSend', function () {
         document.body.style.cursor = 'progress';
         let target = $.pjax.options.container; // контейнер куда грузим AJAX данные
@@ -323,12 +338,19 @@ AppAsset::register($this);
                 input[i].value = '';
             }
         }
+        // Ratelimiter сработал
+        $(document).on('pjax:error', function(event, xhr, textStatus, errorThrown, options){
+            if (xhr.status == 429){
+                alert('Количество попыток исчерпано. Не более <?= Yii::$app->params['rateLimit'] ?> попыток в минуту');
+            }
+        });
     });
+
+
     ///
     (function ($) {
         new WOW().init();
     })(jQuery);
-
 </script>
 </body>
 </html>
