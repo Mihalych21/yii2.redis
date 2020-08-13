@@ -30,12 +30,12 @@ class Post extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'tel', 'body'], 'required'],
+            [['name', 'email',  'body'], 'required'],
             [['body'], 'string'],
             [['date'], 'safe'],
             [['name'], 'string', 'max' => 100],
             [['email'], 'string', 'max' => 255],
-            [['tel'], 'string', 'max' => 20],
+            [['tel'], 'string', 'max' => 30],
         ];
     }
 
@@ -46,23 +46,23 @@ class Post extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Имя',
+            'name' => 'Name',
             'email' => 'Email',
-            'tel' => 'Тел.',
-            'body' => 'Текст',
-            'date' => 'Дата',
+            'tel' => 'Tel',
+            'body' => 'Body',
+            'date' => 'Date',
         ];
     }
 
-    public function mailSend($name, $email, $tel, $msg)
+    public function mailSend($name, $email, $tel, $text)
     {
         /* Отправка почты */
         $subject = 'Письмо с сайта Alex-art';
-        $body = 'Вам пишет <b style="font-size: 120%;text-shadow: 0 1px 0 #e61b05">' . $name . '</b><br>' . clr_get($email) . '<br>Tel: ' . $tel . '<br><br><div style="font-style: italic">' . nl2br(clr_get($msg)) . '</div>' .
+        $body = 'Вам пишет <b style="font-size: 120%;text-shadow: 0 1px 0 #e61b05">' . $name . '</b><br>' . clr_get($email) . '<br>Tel: ' . $tel . '<br><br><div style="font-style: italic">' . nl2br(clr_get($text)) . '</div>' .
             '<br><br>Сообщение отправлено с сайта <b>https:' . Yii::$app->params['siteUrl'] . '</b>';
 
         $success = Yii::$app->mailer->compose()
-        ->setTo(Yii::$app->params['email'])
+            ->setTo(Yii::$app->params['email'])
             ->setFrom([Yii::$app->params['email'] => Yii::$app->params['siteUrl']])
             ->setReplyTo([$email => $name])
             ->setSubject($subject)
@@ -70,12 +70,12 @@ class Post extends \yii\db\ActiveRecord
             ->send();
 
         /* Запись в БД */
-        $this->name = $name;
-        $this->email = $email;
-        $this->tel = $tel;
-        $this->body = $msg;
+         $this->name = $name;
+         $this->email = $email;
+         $this->tel = $tel;
+         $this->body = $text;
 
-        $this->save();
+         $this->save();
 
         return $success;
     }

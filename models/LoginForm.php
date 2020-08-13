@@ -35,15 +35,17 @@ class LoginForm extends Model
             ['password', 'validatePassword'],
             // verifyCode needs to be entered correctly
 //            ['verifyCode', 'captcha'],
-            /*[['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator2::className(),
-                'secret' => '6LcFcbsZAAAAAH50xeZ92H2_CsdSD_lIP81ftj6T', // unnecessary if reСaptcha is already configured
-                'uncheckedMessage' => 'Подтвердите, что вы не робот'],*/
+            //reCaptcha v2
+            [['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator2::className(),
+                'secret' => '6LftVL4ZAAAAAOY8dZHmrKkRnX1Di43yH0DIq34Z', // unnecessary if reСaptcha is already configured
+                'uncheckedMessage' => 'Подтвердите, что вы не робот'],
+
             //reCaptcha v3
-            [['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator3::className(),
+            /*[['reCaptcha'], \himiklab\yii2\recaptcha\ReCaptchaValidator3::className(),
                 'secret' => '6Ld6d7sZAAAAAOaxD_t_a-VY3rMyTzzQdHkpSuF_', // unnecessary if reСaptcha is already configured
                 'threshold' => 0.5,
                 'action' => '/login',
-            ],
+            ],*/
         ];
     }
 

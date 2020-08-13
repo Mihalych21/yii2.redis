@@ -51,6 +51,11 @@ h6, .h6 {
     src: url(/fonts/corpid2.woff);
 }
 
+@font-face {
+    font-family: latoBold;
+    src: url(/fonts/LatoBold.woff);
+}
+
 main {
     display: block;
 }
@@ -398,14 +403,14 @@ header {
 }
 
 #main {
-    margin-bottom: -100px; /* Высота прижатого футера здесь !!! */
+    margin-bottom: -140px; /* Высота прижатого футера здесь !!! */
     min-height: 100%;
     box-shadow: 0 0 20px #555;
 }
 
 #all {
     position: relative;
-    padding-bottom: 100px; /* Высота прижатого футера здесь !!! */
+    padding-bottom: 140px; /* Высота прижатого футера здесь !!! */
     overflow: hidden;
     /*background: url(/img/left.gif) repeat-y;*/
 }
@@ -441,7 +446,7 @@ header {
 
 footer {
     /*position: relative;*/
-    height: 100px; /* Высота прижатого футера здесь !!! */
+    height: 140px; /* Высота прижатого футера здесь !!! */
     background: #eee;
     border: 1px solid transparent;
     border-bottom-left-radius: 15px;
@@ -451,6 +456,7 @@ footer {
     font-family: 'calibri light';
     color: #555;
     border-top: 1px solid #000;
+    padding-bottom: 50px !important;
 }
 
 footer strong {
@@ -800,7 +806,7 @@ ul.highlightTextIn li a:before {
         left: 10px !important;
         width: 60px !important;
         height: 60px !important;
-        /*z-index: 10000000;*/
+        z-index: 10000000;
     }
 
     .triangle {
@@ -1600,8 +1606,8 @@ code {
 #scroller {
     display: none;
     position: fixed;
-    left: 130px;
-    bottom: 150px;
+    left: 50px;
+    bottom: 200px;
     width: 70px;
     height: 70px;
     text-align: center;
@@ -1742,7 +1748,7 @@ code {
     font-family: arial;
     text-align: center;
     background: #fff;
-    height: 400px;
+    height: 470px;
     width: 360px !important;
     z-index: 1000;
     border: 2px solid rgba(230, 27, 5, .5);
@@ -2378,10 +2384,18 @@ button.close {
     margin: 0 auto;
 }
 
+.help-block{
+    color: #ff0000;
+}
+
 #index-form .field {
     width: 100%;
     position: relative;
     margin-bottom: 15px;
+}
+
+#index-form input, #index-form textarea{
+    width: calc(100% - 10px);
 }
 
 #index-form .field label {
@@ -2403,7 +2417,8 @@ button.close {
 #index-form .field textarea {
     border: none;
     background: #E8E9EA;
-    width: 80.5%;
+    /*width: 80.5%;*/
+    height: 65px;
     margin: 0;
     padding: 18px 0;
     padding-left: 19.5%;
@@ -2415,7 +2430,7 @@ button.close {
 
 #index-form .field input[type="text"]#msg,
 #index-form .field textarea#msg {
-    height: 60px;
+    /*height: 60px;*/
     resize: none;
     overflow-y: hidden;
     transition: all 333ms ease-in-out;
@@ -2461,9 +2476,10 @@ button.close {
 
 .success-button {
     position: relative;
-    margin-top: 1vw;
+    /*margin-top: 1vw;*/
     background: #FD9638;
     color: white;
+    font-family: latoBold;
     border: none;
     /* text-transform: uppercase; */
     padding: 13px 30px;
@@ -2471,7 +2487,31 @@ button.close {
     letter-spacing: 0.1em;
     font-weight: 300;
     transition: all 333ms ease-in-out;
+    overflow: hidden;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
 }
+/* здесь анимация на кнопке */
+.button-anim:before{
+    position: absolute;
+    content: '';
+    display: inline-block;
+    top: -180px;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background-color: #fff;
+    animation: shiny-btn1 3s ease-in-out infinite;
+}
+
+@-webkit-keyframes shiny-btn1 {
+    0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
+    80% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
+    81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
+    100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
+}
+/**/
 
 .success-button:hover {
     cursor: pointer !important;

@@ -253,22 +253,22 @@ function onLoad() {
         window.attachEvent("onhashchange", my_hash);
     }
     /* кнопка наверх */
-    // var scr = document.getElementById('scroller');
-    // window.addEventListener('scroll', function (e) {
-        // var top = window.pageYOffset; // сколько проскролено
-        // if (top > 500) {
-            // scr.style.display = 'block';
+    var scr = document.getElementById('scroller');
+    window.addEventListener('scroll', function (e) {
+        var top = window.pageYOffset; // сколько проскролено
+        if (top > 500) {
+            scr.style.display = 'block';
             /*if (document.body.clientWidth > 930) {
                 document.querySelector('.vetka').style.display = 'block';
             }*/
-        // } else {
-        //     scr.style.display = 'none';
-        // }
-    // });
-    // scr.addEventListener('click', function () {
+        } else {
+            scr.style.display = 'none';
+        }
+    });
+    scr.addEventListener('click', function () {
         // scrollTo(0, 0);
-        // $('body,html').animate({scrollTop: 0}, 300);
-    // });
+        $('body,html').animate({scrollTop: 0}, 300);
+    });
     // Замена  "руб." на знак рубля
     price_replace();
 }

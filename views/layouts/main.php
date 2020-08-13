@@ -287,10 +287,10 @@ AppAsset::register($this);
         onLoad();
     };
 </script>
-<!--<div id="scroller" title="проскролить вверх">
+<div id="scroller" title="проскролить вверх">
     <div class="triangle"></div>
     <span class="scr_text">вверх</span>
-</div>-->
+</div>
 <?php $this->endBody() ?>
 <script>
     /* Кастомный алерт */
@@ -332,12 +332,14 @@ AppAsset::register($this);
         $('#container_loading').hide()
         let method = $.pjax.options.type;
         if (method == 'POST' && $.pjax.options.url == '/mail_ok'){ // очищаем поля формы отправки письма
-            let input = document.querySelectorAll('.input');
+            // alert('here');
+            let input = document.querySelectorAll('input, textarea');
             let l = input.length;
             for (var i = 0; i<l; i++){
                 input[i].value = '';
             }
         }
+
         // Ratelimiter сработал
         $(document).on('pjax:error', function(event, xhr, textStatus, errorThrown, options){
             if (xhr.status == 429){

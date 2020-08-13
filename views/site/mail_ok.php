@@ -6,7 +6,7 @@ if ($success) {
 } else{
     $msg = '<h3 style="color:red;text-align: center">Произошла ошибка!Попробуйте еще раз или свяжитесь другим способом.</h3>';
 }
-$msg .= $statusCode;
+
 
 Modal::begin([
         'id' => 'mail-modal',

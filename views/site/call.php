@@ -37,9 +37,17 @@ Modal::begin([
                 'mask' => '+7 (999) - 999 - 99 - 99',
             ]);
         ?>
+
+        <?= $form->field($model, 'reCaptcha')->widget(
+            \himiklab\yii2\recaptcha\ReCaptcha2::className(),
+            [
+                'siteKey' => '6LftVL4ZAAAAAPQq_Sj_9_6Cyguka6qMJpDJRyWs', // unnecessary is reCaptcha component was set up
+            ]
+        ) ?>
+
         <input type="hidden" name="call" value="1">
         <div class="form-group">
-            <?= Html::submitButton('жду звонка!', ['class' => 'mail_bt', 'id' => 'call-btn', 'style' => 'width:180px']) ?>
+            <?= Html::submitButton('жду звонка!', ['class' => 'success-button button-anim']) ?>
         </div>
         <?php ActiveForm::end(); ?>
         <?php Pjax::end(); ?>

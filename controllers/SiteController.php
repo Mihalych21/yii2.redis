@@ -107,20 +107,18 @@ class SiteController extends Controller
     public function actionMail_ok()
     {
         $request = Yii::$app->request;
-        if ($request->isPost && $request->post('index_form') === '1'){ // данные отправлены
+        if ($request->isPost){ // данные отправлены
 
-            $name = clr_get(Html::encode(ucfirst($request->post('name'))));
-            $email = clr_get(Html::encode($request->post('email')));
-        $tel = clr_get(Html::encode($request->post('tel')));
-        $msg = clr_get(Html::encode($request->post('text')));
+            $name = clr_get(Html::encode(ucfirst($request->post()['IndexForm']['name'])));
+            $email = clr_get(Html::encode($request->post()['IndexForm']['email']));
+            $tel = clr_get(Html::encode($request->post()['IndexForm']['tel']));
+            $text = clr_get(Html::encode($request->post()['IndexForm']['text']));
 
-        // отправка email и запись письма в БД
             $post = new Post();
-            $success = $post->mailSend($name, $email, $tel, $msg);
-            //
-            $statusCode = Yii::$app->response->statusCode;
+            // отправка email и запись письма в БД
+            $success = $post->mailSend($name, $email, $tel, $text);
 
-        return $this->renderAjax('mail_ok', compact('success', 'statusCode',  'name'));
+            return $this->renderAjax('mail_ok', compact('success', 'name'));
         }
     }
 

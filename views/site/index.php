@@ -1,5 +1,6 @@
 <?php
 //var_dump($data[1]);die;
+use yii\helpers\Html;
 use yii\widgets\Pjax;
 use yii\widgets\ActiveForm;
 use yii\widgets\MaskedInput;
@@ -381,47 +382,43 @@ $this->registerMetaTag(['name' => 'description', 'content' => $data[0]['descript
 ]);
 ?>
 <div class="field name-box animated bounceInDown wow"  data-wow-delay="0.9s">
-    <input class="input" type="text" name="name" id="name" placeholder="Ваше имя" required="true"/>
-    <label for="name">Имя</label>
+    <?= $form->field($indexForm, 'name')->textInput(['class' => 'index-field']); ?>
 </div>
 
 <div class="field email-box animated bounceInDown wow"  data-wow-delay="0.7s">
-    <input class="input" type="email" name="email" id="email" placeholder="Ваш E-mail" required="true"/>
-    <label for="email">Email</label>
+    <?= $form->field($indexForm, 'email')->textInput(['class' => 'index-field']); ?>
 </div>
 
 <div class="field tel-box animated bounceInDown wow" data-wow-delay="0.5s">
-    <?php
-    echo MaskedInput::widget([
-        'options' => [
-            'required' => true,
-            'placeholder' => 'тел',
-            'name' => 'tel',
-            'id' => 'tel',
-            'class' => 'phone input',
-        ],
-        'name' => 'tel',
-        'mask' => '+7 (999)-999-99-99',
-    ]);
+    <?= $form->field($indexForm, 'tel')
+        ->widget(MaskedInput::className(), [
+            'mask' => '+7 (999) - 999 - 99 - 99',
+        ]);
     ?>
-    <label for="tel">Тел.</label>
 </div>
 
-<div class="field msg-box animated bounceInDown wow"  data-wow-delay="0.3s">
-    <textarea class="input" name="text" id="msg" rows="4" placeholder="Введите текст сообщения" required="true"></textarea>
-    <label for="msg">Текст</label>
-</div>
+
+    <div class="field msg-box animated bounceInDown wow"  data-wow-delay="0.3s">
+        <?= $form->field($indexForm, 'text')->textarea([
+            'id' => 'msg',
+            'class' => 'index-field',
+//            'rows' => 4,
+            'placeholder' => 'Введите текст сообщения',
+            'required' => true,
+        ]); ?>
+    </div>
 
 <?= $form->field($indexForm, 'reCaptcha')->widget(
-    \himiklab\yii2\recaptcha\ReCaptcha3::className(),
+    \himiklab\yii2\recaptcha\ReCaptcha2::className(),
     [
-        'siteKey' => '6Ld6d7sZAAAAAL_nF5e_cXGW9SZl0o9S1ij0e8l7', // unnecessary is reCaptcha component was set up
-        'action' => '/mail_ok',
+        'siteKey' => '6LftVL4ZAAAAAPQq_Sj_9_6Cyguka6qMJpDJRyWs', // unnecessary is reCaptcha component was set up
     ]
 ) ?>
 
-    <input name="index_form" type="hidden" value="1">
-<button type="submit" class="success-button animated bounceInDown wow"  data-wow-delay="0.1s">Отправить</button>
+    <div class="form-group">
+        <?= Html::submitButton('Отправить', ['class' => 'success-button button-anim animated bounceInDown wow', 'data-wow-delay' => '0.1s']) ?>
+    </div>
+
 <?php ActiveForm::end(); ?>
 
 <?php Pjax::end(); ?>
