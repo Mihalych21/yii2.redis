@@ -9,7 +9,7 @@ use yii\widgets\MaskedInput;
 //$this->title = 'Создание и продвижение сайтов в Чебоксарах';
 header('Last-Modified:' . gmdate("D, d M Y H:i:s \G\M\T", $data[0]['last_mod']));
 $this->title = $data[0]['title'];
-$this->registerMetaTag(['name' => 'keywords', 'content' => $data[0]['keywords']]);
+//$this->registerMetaTag(['name' => 'keywords', 'content' => $data[0]['keywords']]);
 $this->registerMetaTag(['name' => 'description', 'content' => $data[0]['description']]);
 ?>
 
@@ -364,7 +364,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => $data[0]['descript
 <?php Pjax::begin([
     'clientOptions' => [
         'method' => 'POST',
-        'url' => '/mail_ok',
+        'url' => '/',
         'container' => '#my-modal',
     ],
     'enablePushState' => false, // не обновлять url
@@ -376,23 +376,30 @@ $this->registerMetaTag(['name' => 'description', 'content' => $data[0]['descript
 <?php $form = ActiveForm::begin([
                   'id' => 'index-form',
                   'options' => [
-                          'action' => '/mail_ok',
+                          'action' => '/',
                           'data-pjax' => true
                   ],
 ]);
 ?>
 <div class="field name-box animated bounceInDown wow"  data-wow-delay="0.9s">
-    <?= $form->field($indexForm, 'name')->textInput(['class' => 'index-field']); ?>
+    <?= $form->field($indexForm, 'name')->textInput([
+            'required' => true,
+    ]); ?>
 </div>
 
 <div class="field email-box animated bounceInDown wow"  data-wow-delay="0.7s">
-    <?= $form->field($indexForm, 'email')->textInput(['class' => 'index-field']); ?>
+    <?= $form->field($indexForm, 'email')->textInput([
+            'required' => true,
+    ]); ?>
 </div>
 
 <div class="field tel-box animated bounceInDown wow" data-wow-delay="0.5s">
     <?= $form->field($indexForm, 'tel')
         ->widget(MaskedInput::className(), [
             'mask' => '+7 (999) - 999 - 99 - 99',
+            'options' => [
+                    'required' => true,
+            ],
         ]);
     ?>
 </div>
@@ -401,19 +408,25 @@ $this->registerMetaTag(['name' => 'description', 'content' => $data[0]['descript
     <div class="field msg-box animated bounceInDown wow"  data-wow-delay="0.3s">
         <?= $form->field($indexForm, 'text')->textarea([
             'id' => 'msg',
-            'class' => 'index-field',
-//            'rows' => 4,
             'placeholder' => 'Введите текст сообщения',
             'required' => true,
         ]); ?>
     </div>
 
-<?= $form->field($indexForm, 'reCaptcha')->widget(
+<?/*= $form->field($indexForm, 'reCaptcha')->widget(
     \himiklab\yii2\recaptcha\ReCaptcha2::className(),
     [
         'siteKey' => '6LftVL4ZAAAAAPQq_Sj_9_6Cyguka6qMJpDJRyWs', // unnecessary is reCaptcha component was set up
     ]
-) ?>
+) */?>
+
+<?/*= $form->field($indexForm, 'reCaptcha')->widget(
+    \himiklab\yii2\recaptcha\ReCaptcha3::className(),
+    [
+        'siteKey' => '6LfNdr4ZAAAAAIKLdnRzRCWwNM6HyP0qo0nYglbN', // unnecessary is reCaptcha component was set up
+        'action' => 'index',
+    ]
+); */?>
 
     <div class="form-group">
         <?= Html::submitButton('Отправить', ['class' => 'success-button button-anim animated bounceInDown wow', 'data-wow-delay' => '0.1s']) ?>

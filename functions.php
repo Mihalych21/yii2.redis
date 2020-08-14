@@ -28,3 +28,8 @@ function clr_get($str)
     $str = str_ireplace($arr, "", $str);
     return $str;
 }
+
+function mb_ucfirst($text)
+{
+    return mb_strtoupper(mb_substr($text, 0, 1)) . mb_substr($text, 1);
+}

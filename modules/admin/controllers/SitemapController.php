@@ -44,10 +44,10 @@ class SitemapController extends Controller
             . $XML . "\n</urlset>";
         $fp = fopen($siteRoot . 'sitemap.xml', 'w+') or die('не могу открыть файл sitemap.xml !');
         if (fwrite($fp, $resXML)) {
-            $msg = 'Успешно!';
+            $result = true;
         }else {
-            $msg = '<span style="color:red">Сбой!</span>';
+            $result = false;
         }
-        return $this->renderFile('@app/modules/admin/views/alert.php', compact('msg'));
+        return $this->renderFile('@app/modules/admin/views/alert.php', compact('result'));
     }
 }

@@ -52,7 +52,7 @@ class SiteController extends Controller
             'rateLimiter' => [
                 // сторонняя фича. Пишется в кэш.Бд не трогается.
                 'class' => \ethercreative\ratelimiter\RateLimiter::className(),
-                'only' => ['login', 'mail_ok'],
+                'only' => ['login'],
                 // The maximum number of allowed requests
                 'rateLimit' => Yii::$app->params['rateLimit'],
                 // The time period for the rates to apply to
@@ -100,26 +100,20 @@ class SiteController extends Controller
         $indexForm = new IndexForm();
         $data = $model->getContent();
 
-        return $this->render('index', ['data' => $data, 'indexForm' => $indexForm]);
-    }
-
-    /* Отправка почты с главной страницы */
-    public function actionMail_ok()
-    {
         $request = Yii::$app->request;
-        if ($request->isPost){ // данные отправлены
+        /* Отправка сообщения и запись в БД */
+        if($indexForm->load($request->post()) && $indexForm->validate()){
+            $name = mb_ucfirst(clr_get($indexForm->name)); // отправка email
+            $success = $indexForm->mailSend();
 
-            $name = clr_get(Html::encode(ucfirst($request->post()['IndexForm']['name'])));
-            $email = clr_get(Html::encode($request->post()['IndexForm']['email']));
-            $tel = clr_get(Html::encode($request->post()['IndexForm']['tel']));
-            $text = clr_get(Html::encode($request->post()['IndexForm']['text']));
+            $msg = new Post(); // звпись в БД
+            $res = $msg->dbSave($indexForm);
+            $res = $res ? 'DB_OK!' : 'DB_ERR!';
 
-            $post = new Post();
-            // отправка email и запись письма в БД
-            $success = $post->mailSend($name, $email, $tel, $text);
-
-            return $this->renderAjax('mail_ok', compact('success', 'name'));
+            return $this->renderAjax('mail_ok', compact('success', 'res', 'name'));
         }
+
+        return $this->render('index', ['data' => $data, 'indexForm' => $indexForm]);
     }
 
     public function actionSozdanie() {
@@ -194,22 +188,18 @@ class SiteController extends Controller
     public function actionCall()
     {
         $request = Yii::$app->request;
+        $formModel = new CallForm();
 
-        if($request->isPost  && $request->post('call') === '1'){ // Форма отправлена
-            $data = $request->post();
-            $name = clr_get(Html::encode(ucfirst($data['callForm']['name'])));
-            $tel = clr_get(Html::encode($data['callForm']['tel']));
+        if($formModel->load($request->post()) && $formModel->validate()){ // Форма отправлена
+            $success = $formModel->callSend();
 
             // Отправка email и запись в БД
             $call = new Callback();
-            $res = $call->callSend($name, $tel);
-
-            return $this->renderAjax('call_ok', compact( 'res'));
+            $res = $call->dbSend($formModel);
+            // выводим модальное окно об успехе/ошибке
+            return $this->renderAjax('call_ok', compact('success','res'));
         }
-
         // модальное окно с формой
-        $model = new CallForm();
-        return $this->renderAjax('call', ['model' => $model]);
+        return $this->renderAjax('call', compact('formModel'));
     }
-
 }

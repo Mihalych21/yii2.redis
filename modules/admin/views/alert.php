@@ -1,3 +1,12 @@
+<?php
+if ($result){
+    $msg = 'Успешно!';
+}else{
+    $msg = '<span style="color:red">Сбой!</span>';
+}
+
+?>
+
 <style>
     .alert-success {
         max-width: 50%;

@@ -29,23 +29,28 @@ Modal::begin([
 
         <?php $form = ActiveForm::begin(['options' => ['data-pjax' => true]], ['id' => 'mail_form', 'class' => 'call']); ?>
 
-        <?= $form->field($model, 'name')->textInput(['required' => true, 'placeholder' => 'Ваше имя'])->label(false) ?>
+        <?= $form->field($formModel, 'name')->textInput(['required' => true, 'placeholder' => 'Ваше имя'])->label(false) ?>
 
 
-        <?= $form->field($model, 'tel')->textInput(['class' => 'phone', 'required' => true])
+        <?= $form->field($formModel, 'tel')->textInput(['class' => 'phone', 'required' => true])
             ->widget(MaskedInput::className(), [
                 'mask' => '+7 (999) - 999 - 99 - 99',
             ]);
         ?>
 
-        <?= $form->field($model, 'reCaptcha')->widget(
+        <?/*= $form->field($formModel, 'reCaptcha')->widget(
             \himiklab\yii2\recaptcha\ReCaptcha2::className(),
             [
                 'siteKey' => '6LftVL4ZAAAAAPQq_Sj_9_6Cyguka6qMJpDJRyWs', // unnecessary is reCaptcha component was set up
             ]
-        ) ?>
+        ) */?>
 
-        <input type="hidden" name="call" value="1">
+        <?/*= \himiklab\yii2\recaptcha\ReCaptcha3::widget([
+            'name' => 'reCaptcha',
+            'siteKey' => '6LfNdr4ZAAAAAIKLdnRzRCWwNM6HyP0qo0nYglbN', // unnecessary is reCaptcha component was set up
+            'action' => 'call',
+        ]) */?>
+
         <div class="form-group">
             <?= Html::submitButton('жду звонка!', ['class' => 'success-button button-anim']) ?>
         </div>

@@ -331,13 +331,8 @@ AppAsset::register($this);
         $('#overlay').remove();
         $('#container_loading').hide()
         let method = $.pjax.options.type;
-        if (method == 'POST' && $.pjax.options.url == '/mail_ok'){ // очищаем поля формы отправки письма
-            // alert('here');
-            let input = document.querySelectorAll('input, textarea');
-            let l = input.length;
-            for (var i = 0; i<l; i++){
-                input[i].value = '';
-            }
+        if (method == 'POST' && $.pjax.options.url == '/'){ // очищаем поля формы отправки письма
+            document.forms[0].reset();
         }
 
         // Ratelimiter сработал

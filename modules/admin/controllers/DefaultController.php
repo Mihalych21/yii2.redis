@@ -6,6 +6,7 @@ use Yii;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 use app\modules\admin\models\Content;
+use yii\helpers\FileHelper;
 /**
  * Default controller for the `admin` module
  */
@@ -60,15 +61,17 @@ class DefaultController extends Controller
                 }
             }
 
-            if ($flag){
+            /*if ($flag){
 //                $transaction->commit();
-                $msg = 'Успешно!';
+                $result = true;
             }else{
 //                $transaction->rollBack();
-                $msg = '<span style="color:red">Сбой!</span>';
-            }
+                $result = false;
+            }*/
 
-            return $this->renderFile('@app/modules/admin/views/alert.php', compact('msg'));
+            $result = $flag ? true : false;
+
+            return $this->renderFile('@app/modules/admin/views/alert.php', compact('result'));
         }
     }
 
@@ -76,14 +79,47 @@ class DefaultController extends Controller
     public function actionCache()
     {
         if (Yii::$app->request->isAjax) {
-            if (Yii::$app->cache->flush()) {
-                $msg = 'Успешно!';
-            }else{
-                $msg = '<span style="color:red">Сбой!</span>';
-            }
-            return $this->renderFile('@app/modules/admin/views/alert.php', compact('msg'));
+            $result = Yii::$app->cache->flush() ? true : false;
+
+            return $this->renderFile('@app/modules/admin/views/alert.php', compact('result'));
         }
     }
 
+    /* Очистка временных и.т.п. папок */
+    public function actionClear()
+    {
+        if (Yii::$app->request->isAjax) {
+            require_once __DIR__ . '/../views/inc/dirArr.php';
+            $fileCount = $dirCount = $errCount = 0; // счетчики
+            foreach ($dirArr as $dirPath) {
+                $dirPath = __DIR__ . '/../../../' . $dirPath;
+                $fileArr =  FileHelper::findFiles($dirPath);
+                $dirList = FileHelper::findDirectories($dirPath);
+                // удаление файлов
+                foreach ($fileArr as $filePath) {
+                   if(isset($filePath)) {
+                       $fRes = @unlink($filePath);
+                   }
+                        if ($fRes) {
+                            $fileCount++;
+                        } else {
+                            $errCount++;
+                        }
+                }
+                // удаление директорий (если есть)
+                foreach ($dirList as $dir){
+                   if(isset($dir)){
+                     $dRes = @rmdir($dir);
+                   }
 
+                    if ($dRes) {
+                        $dirCount++;
+                    } else {
+                        $errCount++;
+                    }
+                }
+            }
+            return $this->renderAjax('modal', compact('fileCount', 'dirCount', 'errCount'));
+        }
+    }
 }

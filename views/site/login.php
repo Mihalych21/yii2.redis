@@ -46,20 +46,18 @@ $this->title = 'Вход в админку';
         'template' => '<div><div style="cursor: pointer">{image}</div><div style="width: 120px;margin-top: -35px;float: right">{input}</div></div>',
     ]) */?>
 
-    <?= $form->field($model, 'reCaptcha')->widget(
+    <?/*= $form->field($model, 'reCaptcha')->widget(
         \himiklab\yii2\recaptcha\ReCaptcha2::className(),
         [
             'siteKey' => '6LftVL4ZAAAAAPQq_Sj_9_6Cyguka6qMJpDJRyWs', // unnecessary is reCaptcha component was set up
         ]
-    ) ?>
-
-    <?/*= $form->field($model, 'reCaptcha')->widget(
-        \himiklab\yii2\recaptcha\ReCaptcha3::className(),
-        [
-            'siteKey' => '6Ld6d7sZAAAAAL_nF5e_cXGW9SZl0o9S1ij0e8l7', // unnecessary is reCaptcha component was set up
-            'action' => '/login',
-        ]
     ) */?>
+
+    <?/*= \himiklab\yii2\recaptcha\ReCaptcha3::widget([
+        'name' => 'reCaptcha',
+        'siteKey' => '6LfNdr4ZAAAAAIKLdnRzRCWwNM6HyP0qo0nYglbN', // unnecessary is reCaptcha component was set up
+        'action' => 'login',
+    ]) */?>
 
     <?= $form->field($model, 'rememberMe')->checkbox([
         'template' => "<div class=\"col-lg-offset-1 col-lg-3\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",

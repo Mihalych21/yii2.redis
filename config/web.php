@@ -128,8 +128,8 @@ $config = [
             'class' => 'himiklab\yii2\recaptcha\ReCaptchaConfig',
             'siteKeyV2' => '6LcFcbsZAAAAALP2l0KCjvTUD-X2dyPcEGPcXaq7',
             'secretV2' => '6LcFcbsZAAAAAH50xeZ92H2_CsdSD_lIP81ftj6T',
-            'siteKeyV3' => '6Ld6d7sZAAAAAL_nF5e_cXGW9SZl0o9S1ij0e8l7',
-            'secretV3' => '6Ld6d7sZAAAAAOaxD_t_a-VY3rMyTzzQdHkpSuF_',
+            'siteKeyV3' => '6LfNdr4ZAAAAAIKLdnRzRCWwNM6HyP0qo0nYglbN',
+            'secretV3' => '6LfNdr4ZAAAAAA-JNIMCWXlx_eeYv-JxJzJpdPdz',
         ],
     ],
     'controllerMap' => [

@@ -54,29 +54,20 @@ class Post extends \yii\db\ActiveRecord
         ];
     }
 
-    public function mailSend($name, $email, $tel, $text)
+    /* Запись в БД */
+    public function dbSave($indexForm)
     {
-        /* Отправка почты */
-        $subject = 'Письмо с сайта Alex-art';
-        $body = 'Вам пишет <b style="font-size: 120%;text-shadow: 0 1px 0 #e61b05">' . $name . '</b><br>' . clr_get($email) . '<br>Tel: ' . $tel . '<br><br><div style="font-style: italic">' . nl2br(clr_get($text)) . '</div>' .
-            '<br><br>Сообщение отправлено с сайта <b>https:' . Yii::$app->params['siteUrl'] . '</b>';
+        $name = mb_ucfirst(clr_get($indexForm->name));
+        $email = clr_get($indexForm->email);
+        $tel = clr_get($indexForm->tel);
+        $text = clr_get($indexForm->text);
 
-        $success = Yii::$app->mailer->compose()
-            ->setTo(Yii::$app->params['email'])
-            ->setFrom([Yii::$app->params['email'] => Yii::$app->params['siteUrl']])
-            ->setReplyTo([$email => $name])
-            ->setSubject($subject)
-            ->setHtmlBody($body)
-            ->send();
+        $this->name = $name;
+        $this->email = $email;
+        $this->tel = $tel;
+        $this->body = $text;
 
-        /* Запись в БД */
-         $this->name = $name;
-         $this->email = $email;
-         $this->tel = $tel;
-         $this->body = $text;
-
-         $this->save();
-
-        return $success;
+        $res = $this->save();
+        return $res;
     }
 }

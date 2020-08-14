@@ -48,35 +48,18 @@ class Callback extends \yii\db\ActiveRecord
         ];
     }
 
-    public function callSend($name, $tel)
+    /* Запись в БД */
+    public function dbSend($formModel)
     {
+        $name = mb_ucfirst(clr_get($formModel->name));
+        $tel = clr_get($formModel->tel);
 
-        $subject = 'Обратный звонок';
-
-        $body = 'Клиент &nbsp;<b style="font-size: 120%;text-shadow: 0 1px 0 #e61b05">' . $name . '</b>&nbsp; просит перезвонить.<br>' .
-            'Тел. :&nbsp;&nbsp;<b style="font-size: 110%;>' . $tel . '</b>';
-
-        $success = Yii::$app->mailer->compose()
-            ->setTo('mail@alexart21.ru')
-            ->setFrom(['mail@alexart21.ru' => 'alexart21.ru'])
-            ->setSubject($subject)
-            ->setHtmlBody($body)
-            ->send();
-
-        /* Запись в БД */
-        if ($success) {// все хорошо
-            // пишем данные в базу
             $this->name = $name;
             $this->tel = $tel;
 
-            $this->save();
+            $res = $this->save();
+            $res = $res ? 'DB_OK!' : 'DB_ERR!';
 
-            $msg = '<h3 stytelolor:green;text-align: center">Спасибо,'. $name .'  ожидайте звонка!</h3>';
-        } else{
-            // что-то не так
-            $msg = '<h3 style="color:red;text-align: center">Ошибка !</h3>';
-        }
-
-        return $msg;
+        return $res;
     }
 }

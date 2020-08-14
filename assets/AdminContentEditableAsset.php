@@ -17,8 +17,8 @@ class AdminContentEditableAsset extends AssetBundle
 ];
     public $depends = [
 //        'css/style.css',
-//        'yii\web\JQueryAsset',
-        'yii\bootstrap\BootstrapPluginAsset',
+        'yii\web\JQueryAsset',
+        'yii\bootstrap4\BootstrapPluginAsset',
     ];
 
     public $jsOptions = ['position' => \yii\web\View::POS_HEAD];

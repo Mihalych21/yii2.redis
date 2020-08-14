@@ -1,5 +1,5 @@
 <?php
-echo($res);
+echo $success, $res;
 ?>
 <script>
     // через 4 сек удаляем сообщение

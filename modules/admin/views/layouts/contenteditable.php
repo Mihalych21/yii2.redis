@@ -1,12 +1,13 @@
 <?php
 
 use app\assets\AdminContentEditableAsset;
+use app\assets\AdminAsset;
 use yii\helpers\Html;
 use yii\bootstrap\NavBar;
 use yii\bootstrap\Nav;
 use yii\widgets\Breadcrumbs;
 
-AdminContentEditableAsset::register($this);
+AdminAsset::register($this);
 
 ?>
 <?php $this->beginPage() ?>

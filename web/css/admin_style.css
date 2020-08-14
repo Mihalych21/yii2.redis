@@ -94,5 +94,13 @@ body {
 .glyphicon-trash {
     color: red !important;
 }
+/**/
+#w0-collapse a, #w0-collapse a:visited{
+    color: #fff !important;
+}
+
+#w0-collapse a:hover{
+    text-shadow: 1px 1px #e61b05 !important;
+}
 
 
