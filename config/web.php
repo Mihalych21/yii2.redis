@@ -14,7 +14,7 @@ $config = [
     'modules' => [
         'admin' => [ // подключаем модуль админки
             'class' => 'app\modules\admin\Module',
-            'layout' => 'admin'
+            'layout' => 'main'
         ],
         'debug' => [
             'class' => 'yii\debug\Module',
@@ -31,6 +31,13 @@ $config = [
         ],*/
     ],
     'components' => [
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
+                ],
+            ],
+        ],
         /* Redis */
         /*'redis' => [
             'class' => 'yii\redis\Connection',

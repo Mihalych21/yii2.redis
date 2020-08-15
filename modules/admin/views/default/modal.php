@@ -1,13 +1,19 @@
 <?php
-use yii\bootstrap4\Modal;
-$msg = 'Удалено : <br> Файлов: ' . $fileCount . '<br>
-    Папок : ' .  $dirCount;
-if ($errCount){
-    $msg .= '<br>Не удалось удалить :' . $errCount;
+use yii\bootstrap\Modal;
+
+if (!$flag) {
+    $msg = '<h4>Удалено :</h4> <br> Файлов: <b>' . $fileCount . '</b><br>
+    Папок : <b>' . $dirCount . '</b>';
+    if ($errCount) {
+        $msg .= '<br>Не удалось удалить :' . $errCount;
+    }
+}else{
+    $msg = $result ? 'Успешно!' : '<span style="color:red">Сбой!</span>';
 }
 
 Modal::begin([
-    'id' => 'modal',
+        'header' => $header,
+        'id' => 'modal',
 ]);
 echo $msg;
 

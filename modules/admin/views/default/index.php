@@ -1,7 +1,5 @@
 <?php
-use yii\widgets\Pjax;
-
-$user = strtolower(Yii::$app->user->identity->username);
+$this->title = 'Административная панель';
 ?>
 
 <div class="admin-default-index">
@@ -9,23 +7,10 @@ $user = strtolower(Yii::$app->user->identity->username);
     <br>
         <a class="btn btn-danger pjax" href="/admin/default/cache">очистить кэш</a>&nbsp;
     <a class="btn btn-success pjax" href="/admin/default/last">Last Modified</a>&nbsp;
-    <a class="btn btn-success pjax" href="/admin/sitemap">Sitemap</a>&nbsp;
+    <a class="btn btn-success pjax" href="/admin/default/sitemap">Sitemap</a>&nbsp;
     (<b>Очиска кэша/Установка заголовка Last Modified в текущее время/Генерация Sitemap.xml</b>)
     <br>
-    <?php Pjax::begin(
-        [
-            'clientOptions' => [
-                'method' => 'GET',
-                'data-pjax-container' => '#cache',
-            ],
-            'enablePushState' => false, // не обновлять url
-            'linkSelector' => '.pjax', //обрабатывать через pjax только отдельные ссылки
-            'timeout' => '5000',
-        ]);
-    ?>
 
-    <div id="cache"></div>
-    <?php Pjax::end(); ?>
 <!--    --><?php //if ($user === Yii::$app->params['admin_alex']) : ?>
         <h3><a href="/admin/content">Содержимое основных страниц</a> (таблица Content)</h3>
 <!--    --><?php //endif; ?>

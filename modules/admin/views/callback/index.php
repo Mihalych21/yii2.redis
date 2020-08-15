@@ -18,7 +18,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="callback-index">
 
     <h1>Заказы обратного звонка</h1>
-    <a class="btn btn-danger" style="float: right;margin-bottom: 1em" href="/admin/callback/del_all">Удалить все</a>
+    <a class="btn btn-danger" style="" href="/admin/callback/del_all">Удалить все</a>
+    <br>
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 

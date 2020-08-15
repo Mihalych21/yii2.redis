@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </style>
 <div class="post-index">
 
-    <h1><?= Html::encode($this->title) ?></h1><a class="btn btn-danger" style="float: right;margin-bottom: 1em"
+    <h1><?= Html::encode($this->title) ?></h1><a class="btn btn-danger"
                                                  href="/admin/post/del_all">Удалить все</a>
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
