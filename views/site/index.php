@@ -1,5 +1,5 @@
 <?php
-//var_dump($data[1]);die;
+//var_dump($data[0]['title']);die;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
 use yii\widgets\ActiveForm;
@@ -384,12 +384,14 @@ $this->registerMetaTag(['name' => 'description', 'content' => $data[0]['descript
 <div class="field name-box animated bounceInDown wow"  data-wow-delay="0.9s">
     <?= $form->field($indexForm, 'name')->textInput([
             'required' => true,
+            'tabindex' => 1,
     ]); ?>
 </div>
 
 <div class="field email-box animated bounceInDown wow"  data-wow-delay="0.7s">
     <?= $form->field($indexForm, 'email')->textInput([
             'required' => true,
+        'tabindex' => 2,
     ]); ?>
 </div>
 
@@ -399,6 +401,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => $data[0]['descript
             'mask' => '+7 (999) - 999 - 99 - 99',
             'options' => [
                     'required' => true,
+                'tabindex' => 3,
             ],
         ]);
     ?>
@@ -410,6 +413,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => $data[0]['descript
             'id' => 'msg',
             'placeholder' => 'Введите текст сообщения',
             'required' => true,
+            'tabindex' => 4,
         ]); ?>
     </div>
 
@@ -429,7 +433,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => $data[0]['descript
 ); */?>
 
     <div class="form-group">
-        <?= Html::submitButton('Отправить', ['class' => 'success-button button-anim animated bounceInDown wow', 'data-wow-delay' => '0.1s']) ?>
+        <?= Html::submitButton('Отправить', ['class' => 'btn success-button button-anim animated bounceInDown wow', 'data-wow-delay' => '0.1s']) ?>
     </div>
 
 <?php ActiveForm::end(); ?>

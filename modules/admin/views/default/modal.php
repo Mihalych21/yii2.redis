@@ -8,7 +8,7 @@ if (!$flag) {
         $msg .= '<br>Не удалось удалить :' . $errCount;
     }
 }else{
-    $msg = $result ? 'Успешно!' : '<span style="color:red">Сбой!</span>';
+    $msg = $result ? '<h4 class="text-success">Успешно!</h4>' : '<h4 class="text-danger">Сбой!</h4>';
 }
 
 Modal::begin([

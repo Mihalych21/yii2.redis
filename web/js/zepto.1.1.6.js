@@ -19,7 +19,7 @@ var Zepto = (function () {
         rootNodeRE = /^(?:body|html)$/i,
         capitalRE = /([A-Z])/g,
 
-    // special attributes that should be get/set via method calls
+        // special attributes that should be get/set via method calls
         methodAttributes = ['val', 'css', 'html', 'text', 'data', 'width', 'height', 'offset'],
 
         adjacencyOperators = ['after', 'prepend', 'before', 'append'],
@@ -72,7 +72,7 @@ var Zepto = (function () {
 
     function type(obj) {
         return obj == null ? String(obj) :
-        class2type[toString.call(obj)] || "object"
+            class2type[toString.call(obj)] || "object"
     }
 
     function isFunction(value) {
@@ -114,6 +114,7 @@ var Zepto = (function () {
             return chr ? chr.toUpperCase() : ''
         })
     }
+
     function dasherize(str) {
         return str.replace(/::/g, '/')
             .replace(/([A-Z]+)([A-Z][a-z])/g, '$1_$2')
@@ -225,7 +226,7 @@ var Zepto = (function () {
             // is thrown if the fragment doesn't begin with <
             if (selector[0] == '<' && fragmentRE.test(selector))
                 dom = zepto.fragment(selector, RegExp.$1, context), selector = null
-            // If there's a context, create a collection on that context first, and select
+                // If there's a context, create a collection on that context first, and select
             // nodes from there
             else if (context !== undefined) return $(context).find(selector)
             // If it's a CSS selector, use it to select nodes.
@@ -244,7 +245,7 @@ var Zepto = (function () {
             // If it's a html fragment, create nodes from it
             else if (fragmentRE.test(selector))
                 dom = zepto.fragment(selector.trim(), RegExp.$1, context), selector = null
-            // If there's a context, create a collection on that context first, and select
+                // If there's a context, create a collection on that context first, and select
             // nodes from there
             else if (context !== undefined) return $(context).find(selector)
             // And last but no least, if it's a CSS selector, use it to select nodes.
@@ -270,8 +271,7 @@ var Zepto = (function () {
                 if (isArray(source[key]) && !isArray(target[key]))
                     target[key] = []
                 extend(target[key], source[key], deep)
-            }
-            else if (source[key] !== undefined) target[key] = source[key]
+            } else if (source[key] !== undefined) target[key] = source[key]
     }
 
     // Copy all but undefined properties from one or more
@@ -298,7 +298,7 @@ var Zepto = (function () {
             nameOnly = maybeID || maybeClass ? selector.slice(1) : selector, // Ensure that a 1 char tag name still gets checked
             isSimple = simpleSelectorRE.test(nameOnly)
         return (isDocument(element) && isSimple && maybeID) ?
-            ( (found = element.getElementById(nameOnly)) ? [found] : [] ) :
+            ((found = element.getElementById(nameOnly)) ? [found] : []) :
             (element.nodeType !== 1 && element.nodeType !== 9) ? [] :
                 slice.call(
                     isSimple && !maybeID ?
@@ -350,12 +350,12 @@ var Zepto = (function () {
     function deserializeValue(value) {
         try {
             return value ?
-            value == "true" ||
-            ( value == "false" ? false :
-                value == "null" ? null :
-                    +value + "" == value ? +value :
-                        /^[\[\{]/.test(value) ? $.parseJSON(value) :
-                            value )
+                value == "true" ||
+                (value == "false" ? false :
+                    value == "null" ? null :
+                        +value + "" == value ? +value :
+                            /^[\[\{]/.test(value) ? $.parseJSON(value) :
+                                value)
                 : value
         } catch (e) {
             return value
@@ -648,7 +648,7 @@ var Zepto = (function () {
         toggle: function (setting) {
             return this.each(function () {
                 var el = $(this)
-                    ;
+                ;
                 (setting === undefined ? el.css("display") == "none" : setting) ? el.show() : el.hide()
             })
         },
@@ -852,9 +852,9 @@ var Zepto = (function () {
             if (!this.length) return
 
             var elem = this[0],
-            // Get *real* offsetParent
+                // Get *real* offsetParent
                 offsetParent = this.offsetParent(),
-            // Get correct offsets
+                // Get correct offsets
                 offset = this.offset(),
                 parentOffset = rootNodeRE.test(offsetParent[0].nodeName) ? {top: 0, left: 0} : offsetParent.offset()
 
@@ -899,7 +899,7 @@ var Zepto = (function () {
             var offset, el = this[0]
             if (value === undefined) return isWindow(el) ? el['inner' + dimensionProperty] :
                 isDocument(el) ? el.documentElement['scroll' + dimensionProperty] :
-                (offset = this.offset()) && offset[dimension]
+                    (offset = this.offset()) && offset[dimension]
             else return this.each(function (idx) {
                 el = $(this)
                 el.css(dimension, funcArg(this, value, idx, el[dimension]()))
@@ -1058,7 +1058,7 @@ window.$ === undefined && (window.$ = Zepto)
 
     function remove(element, events, fn, selector, capture) {
         var id = zid(element)
-            ;
+        ;
         (events || '').split(/\s/).forEach(function (event) {
             findHandlers(element, event, fn, selector).forEach(function (handler) {
                 delete handlers[id][handler.i]
@@ -1127,7 +1127,7 @@ window.$ === undefined && (window.$ = Zepto)
             })
 
             if (source.defaultPrevented !== undefined ? source.defaultPrevented :
-                    'returnValue' in source ? source.returnValue === false :
+                'returnValue' in source ? source.returnValue === false :
                     source.getPreventDefault && source.getPreventDefault())
                 event.isDefaultPrevented = returnTrue
         }
@@ -1241,8 +1241,8 @@ window.$ === undefined && (window.$ = Zepto)
     // shortcut methods for `.bind(event, fn)` for each event type
     ;
     ('focusin focusout focus blur load resize scroll unload click dblclick ' +
-    'mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave ' +
-    'change select keydown keypress keyup error').split(' ').forEach(function (event) {
+        'mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave ' +
+        'change select keydown keypress keyup error').split(' ').forEach(function (event) {
         $.fn[event] = function (callback) {
             return (0 in arguments) ?
                 this.bind(event, callback) :
@@ -1343,7 +1343,7 @@ window.$ === undefined && (window.$ = Zepto)
 
         var _callbackName = options.jsonpCallback,
             callbackName = ($.isFunction(_callbackName) ?
-                    _callbackName() : _callbackName) || ('jsonp' + (++jsonpID)),
+                _callbackName() : _callbackName) || ('jsonp' + (++jsonpID)),
             script = document.createElement('script'),
             originalCallback = window[callbackName],
             responseData,
@@ -1430,10 +1430,10 @@ window.$ === undefined && (window.$ = Zepto)
 
     function mimeToDataType(mime) {
         if (mime) mime = mime.split(';', 2)[0]
-        return mime && ( mime == htmlType ? 'html' :
-                mime == jsonType ? 'json' :
-                    scriptTypeRE.test(mime) ? 'script' :
-                    xmlTypeRE.test(mime) && 'xml' ) || 'text'
+        return mime && (mime == htmlType ? 'html' :
+            mime == jsonType ? 'json' :
+                scriptTypeRE.test(mime) ? 'script' :
+                    xmlTypeRE.test(mime) && 'xml') || 'text'
     }
 
     function appendQuery(url, query) {
@@ -1471,9 +1471,9 @@ window.$ === undefined && (window.$ = Zepto)
         if (hasPlaceholder) dataType = 'jsonp'
 
         if (settings.cache === false || (
-                (!options || options.cache !== true) &&
-                ('script' == dataType || 'jsonp' == dataType)
-            ))
+            (!options || options.cache !== true) &&
+            ('script' == dataType || 'jsonp' == dataType)
+        ))
             settings.url = appendQuery(settings.url, '_=' + Date.now())
 
         if ('jsonp' == dataType) {
@@ -1518,8 +1518,8 @@ window.$ === undefined && (window.$ = Zepto)
 
                     try {
                         // http://perfectionkills.com/global-eval-what-are-the-options/
-                        if (dataType == 'script')    (1, eval)(result)
-                        else if (dataType == 'xml')  result = xhr.responseXML
+                        if (dataType == 'script') (1, eval)(result)
+                        else if (dataType == 'xml') result = xhr.responseXML
                         else if (dataType == 'json') result = blankRE.test(result) ? null : $.parseJSON(result)
                     } catch (e) {
                         error = e
@@ -1608,7 +1608,7 @@ window.$ === undefined && (window.$ = Zepto)
         $.each(obj, function (key, value) {
             type = $.type(value)
             if (scope) key = traditional ? scope :
-            scope + '[' + (hash || type == 'object' || type == 'array' ? key : '') + ']'
+                scope + '[' + (hash || type == 'object' || type == 'array' ? key : '') + ']'
             // handle data in serializeArray() format
             if (!scope && array) params.add(value.name, value.value)
             // recurse into nested objects

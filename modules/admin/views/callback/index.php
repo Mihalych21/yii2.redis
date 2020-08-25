@@ -19,6 +19,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1>Заказы обратного звонка</h1>
     <a class="btn btn-danger" style="" href="/admin/callback/del_all">Удалить все</a>
+    <?php
+    if (!empty($_SESSION['newCallCount'])) :
+    ?>
+    <a href="/admin/default/zvonoklabel" class="pjax btn btn-dark">Пометить прочиттанными</a>
+    <?php
+        endif;
+    ?>
     <br>
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -33,9 +40,23 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'tel',
             'date',
-
+            'is_read',
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
     <?php Pjax::end(); ?>
 </div>
+<script>
+    let td = document.getElementsByTagName('td');
+    for (i = 0; i < td.length; i++){
+        if (td[i].innerText == '0'){
+            let id = td[i].parentNode.firstChild.nextSibling.textContent;
+            let tr = td[i].parentElement;
+            tr.style.background = 'rgba(53,107,97,0.65)';
+            tr.style.cursor = 'pointer';
+            tr.addEventListener('click', function () {
+                window.location.replace('/admin/callback/view?id=' + id);
+            });
+        }
+    }
+</script>

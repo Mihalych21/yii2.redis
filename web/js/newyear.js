@@ -1,7 +1,7 @@
 var b = document.body;
-            var c = document.getElementsByTagName('canvas')[0];
-            var a = c.getContext('2d');
-            document.body.clientWidth; // fix bug in chrome.
+var c = document.getElementsByTagName('canvas')[0];
+var a = c.getContext('2d');
+document.body.clientWidth; // fix bug in chrome.
 
 n = [];
 M = Math;
@@ -14,17 +14,21 @@ T = M.sin;
 
 function F() {
     a.clearRect(0, 0, W, W);
-    for (A = T(t - 11), i = 0; i < O; L.b = L.z * A - L.x * T(t))(L = J[i++]).a = L.x * A + L.z * T(t);
+    for (A = T(t - 11), i = 0; i < O; L.b = L.z * A - L.x * T(t)) (L = J[i++]).a = L.x * A + L.z * T(t);
     J.sort(function (a, b) {
         return a.b - b.b
     });
-    for (a.font = '40px Comic Sans MS', a.fillStyle = '#e61b05', i = 0; i < O; a.drawImage(n[(L = J[i++]).n], 207 + L.a >> 0, 150 + L.y >> 0)) if (i == O >> 1) {a.fillText('С новым годом!', 65, 396)};
+    for (a.font = '40px Comic Sans MS', a.fillStyle = '#e61b05', i = 0; i < O; a.drawImage(n[(L = J[i++]).n], 207 + L.a >> 0, 150 + L.y >> 0)) if (i == O >> 1) {
+        a.fillText('С новым годом!', 65, 396)
+    }
+    ;
     t += .02;
     setTimeout(F, 9)
 }
-for (O = k = 0; k < 12; k++) with(n[k] = c.cloneNode(0)) {
+
+for (O = k = 0; k < 12; k++) with (n[k] = c.cloneNode(0)) {
     width = height = 32;
-    with(getContext('2d')) {
+    with (getContext('2d')) {
         if (k > 9) {
             for (i = 0; i < 99; i += U) {
                 beginPath();

@@ -2,15 +2,18 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\Msg;
 use Yii;
-use yii\web\Controller;
+//use yii\web\Controller;
 use yii\filters\AccessControl;
 use app\modules\admin\models\Content;
 use yii\helpers\FileHelper;
+use yii\web\View;
+
 /**
  * Default controller for the `admin` module
  */
-class DefaultController extends Controller
+class DefaultController extends AppAdminController
 {
     public function behaviors()
     {
@@ -72,7 +75,7 @@ class DefaultController extends Controller
             $result = $flag ? true : false;
             $flag = true;
             $header = '<h3>LastModified</h3>';
-            return $this->renderAjax('modal', compact('result', 'flag', 'header'));
+            return $this->renderPartial('modal', compact('result', 'flag', 'header'));
 
 //            return $this->renderFile('@app/modules/admin/views/alert.php', compact('result'));
         }
@@ -86,7 +89,7 @@ class DefaultController extends Controller
             $result = Yii::$app->cache->flush() ? true : false;
             $flag = true;
             $header = '<h3>Очистка кэша</h3>';
-            return $this->renderAjax('modal', compact('result', 'flag', 'header'));
+            return $this->renderPartial('modal', compact('result', 'flag', 'header'));
 
 //            return $this->renderFile('@app/modules/admin/views/alert.php', compact('result'));
         }
@@ -123,7 +126,7 @@ class DefaultController extends Controller
         $result = fwrite($fp, $resXML) ? true : false;
         $flag = true;
         $header = '<h3>Sitemap.xml</h3>';
-        return $this->renderAjax('modal', compact('result', 'flag', 'header'));
+        return $this->renderPartial('modal', compact('result', 'flag', 'header'));
 //        return $this->renderFile('@app/modules/admin/views/alert.php', compact('result'));
     }
 
@@ -162,7 +165,29 @@ class DefaultController extends Controller
                 }
             }
             $header = '<h3>Очистка папок</h3>';
-            return $this->renderAjax('modal', compact('fileCount', 'dirCount', 'errCount', 'header'));
+            return $this->renderPartial('modal', compact('fileCount', 'dirCount', 'errCount', 'header'));
+        }
+    }
+
+    /* Помечаем все письма как прочитанные */
+    public function actionPostlabel()
+    {
+        if (Yii::$app->request->isAjax) {
+            $result = Msg::setPostAllRead();
+            $flag = true;
+            unset($_SESSION['newPostCount']);
+            return $this->renderPartial('modal', compact('flag', 'result'));
+        }
+    }
+
+    /* Помечаем все заказы обратных звонков как прочитанные */
+    public function actionZvonoklabel()
+    {
+        if (Yii::$app->request->isAjax) {
+            $result = Msg::setZvonokAllRead();
+            $flag = true;
+            unset($_SESSION['newCallCount']);
+            return $this->renderPartial('modal', compact('flag', 'result'));
         }
     }
 }

@@ -5,16 +5,12 @@ namespace app\modules\admin\controllers;
 use Yii;
 use app\modules\admin\models\Content;
 use app\modules\admin\models\ContentSearch;
-//use app\modules\admin\models\Seo;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
 
 /**
  * ContentController implements the CRUD actions for Content model.
  */
-class ContentController extends Controller
+class ContentController extends AppAdminController
 {
 
     /**

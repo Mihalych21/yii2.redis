@@ -94,20 +94,21 @@ body {
 .glyphicon-trash {
     color: red !important;
 }
+
 /**/
-#w0-collapse a, #w0-collapse a:visited{
+#w0-collapse a, #w0-collapse a:visited {
     color: #fff !important;
 }
 
-#w0-collapse a:hover{
+#w0-collapse a:hover {
     text-shadow: 1px 1px #e61b05 !important;
 }
 
-.breadcrumb{
+.breadcrumb {
     margin-bottom: 2em !important;
 }
 
-.modal-dialog, .modal-content{
+.modal-dialog, .modal-content {
     width: 300px !important;
     border: 2px solid #3C8DBC !important;
     border-radius: 10px !important;
@@ -117,7 +118,23 @@ body {
 #loader {
     position: absolute;
     z-index: 10000000000;
-    left: calc(100% /2);
+    left: calc(100% / 2);
     top: calc(100% / 2);
     visibility: hidden;
+}
+/**/
+.navbar-static-top{
+    /*background-color: #9d9d9d !important;*/
+    max-height: 50px;
+}
+
+.db-count{
+    color: #fff;
+    /*position: absolute;*/
+}
+
+.modal-header .close{
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }

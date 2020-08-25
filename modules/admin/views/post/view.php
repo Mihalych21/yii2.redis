@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use app\models\Post;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Post */
@@ -10,6 +11,12 @@ $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
+?>
+<?php
+// Сразу же помечаем прочитанным
+$item = Post::findOne(['id' => $model->id]);
+$item->is_read = '1';
+$item->save();
 ?>
 <div class="post-view">
 
@@ -32,8 +39,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',
             'email:email',
             'tel',
-            'body:ntext',
             'date',
+            'body:ntext',
         ],
     ]) ?>
 

@@ -5,14 +5,13 @@ namespace app\modules\admin\controllers;
 use Yii;
 use app\modules\admin\models\CallbackSearch;
 use app\models\Callback;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * CallbackController implements the CRUD actions for Callback model.
  */
-class CallbackController extends Controller
+class CallbackController extends AppAdminController
 {
     /**
      * {@inheritdoc}

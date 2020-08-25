@@ -1,4 +1,5 @@
 "use strict";
+
 // заголовок в тег title после AJAX загрузки
 function parse_hash() {
     var hash = document.location.hash.slice(2); // строка хеша без символов "#!"
@@ -31,6 +32,7 @@ function parse_hash() {
         }
     }
 }
+
 /* AJAX запрос методом GET с параметром "param" результат в блок с id "result_block" */
 /**
  * @param  {string} param        вида id=mail
@@ -70,6 +72,7 @@ function get_query(param, result_block) {
         }
     });
 }
+
 /* AJAX передача методом POST данных формы с полей с классом "send", результаты в блок с id "result_block" */
 /**
  * @param  {string} result_block - id блока куда подгружаем контент без символа #
@@ -96,6 +99,7 @@ function form_call(result_block) {
         }
     });
 }
+
 /* Заявка на заказ сайта или продвижение */
 /**
  * @param  {string} site - вида id=seo
@@ -164,6 +168,7 @@ function loading(block) {
     }
     document.body.style.cursor = 'progress';
 }
+
 /* стоп анимации */
 /**
  * @param  {string} result_block - блок где анимация загрузки
@@ -180,6 +185,7 @@ function komplete(result_block, flag) { // стоп анимации загр.
         $('#overlay').remove();
     }
 }
+
 /*Мобильное левое меню*/
 function mobLeft() {
     var menuBtn = document.querySelector('.mob-menu-button'); //кнопка
@@ -210,6 +216,7 @@ function mobLeft() {
         });
     }
 }
+
 //
 /* По окончании загрузки страницы */
 function onLoad() {
@@ -272,6 +279,7 @@ function onLoad() {
     // Замена  "руб." на знак рубля
     price_replace();
 }
+
 //////
 // окраска текущей ссылки верхнего меню
 function hash_link_color(hash_link) {
@@ -296,6 +304,7 @@ function hash_link_color(hash_link) {
 
     }
 }
+
 // Функция замены текста "руб." на знак рубля
 function price_replace() {
     // var rep = /\sруб(.|\s)?$/;
@@ -306,6 +315,7 @@ function price_replace() {
         r[i].innerHTML = rub;
     }
 }
+
 // на изм. хеша
 // console.log(window.location);
 function my_hash() { //
@@ -326,6 +336,7 @@ function my_hash() { //
         }
     }
 }
+
 /* Анимация на странице контакты */
 function contactHover() {
     var li = document.getElementById('contact').getElementsByTagName('li');
@@ -355,6 +366,7 @@ function contactHover() {
         });
     }
 }
+
 /* фиксация верхнего меню */
 function menu_fix() {
     var h_hght = 500; // высота шапки
@@ -391,6 +403,7 @@ function menu_fix() {
         });
     }
 }
+
 /* маска  ввода телефона с переключателем */
 /**
  * @param  {string} tabindex значение атрибута tabindex инпута с телефоном
@@ -417,12 +430,14 @@ function maskTogl(tabindex) {
         document.getElementById('tel').focus();
     });
 }
+
 ///
 function preloadImages() {
     for (var i = 0; i < arguments.length; i++) {
         new Image().src = arguments[i];
     }
 }
+
 ///
 function titleSave(title) {
     window.document.title = title;

@@ -24,10 +24,12 @@ function form_call(content, id) {
         }
     });
 }
+
 // анимация загрузки
 function loading() {
     document.body.style.cursor = 'progress';
 }
+
 // стоп анимации
 function loading_stop() {
     document.body.style.cursor = "";

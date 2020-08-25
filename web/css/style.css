@@ -110,7 +110,7 @@ html, body, #container {
     height: 100%;
 }
 
-#container{
+#container {
     /* Новогодний понт */
     /*border-image-width: 0 10px 0 10px !important;
     border-image-source: url("/img/girland.gif") !important;
@@ -414,6 +414,7 @@ header {
     overflow: hidden;
     /*background: url(/img/left.gif) repeat-y;*/
 }
+
 #left {
     float: left;
     width: 200px;
@@ -860,7 +861,6 @@ ul.highlightTextIn li a:before {
 }
 
 
-
 /* тень снизу верхнего меню */
 .menu_shadow {
     z-index: 0;
@@ -911,7 +911,7 @@ ul.highlightTextIn li a:before {
 #container_loading {
     position: absolute;
     z-index: 10000000000;
-    left: calc(100% /2);
+    left: calc(100% / 2);
     top: calc(100% / 2);
     display: none;
 }
@@ -1215,7 +1215,7 @@ ul.highlightTextIn li a:before {
     background-position: 40px 40px;
 }
 
-#cms img{
+#cms img {
     display: inline-block !important;
     margin-top: -25px;
 }
@@ -1481,93 +1481,6 @@ span[itemprop=name] {
 .c3 {
     background-position: 0 24px;
 }
-
-/* блок новости */
-#news {
-    padding: 1.5em 1em;
-    line-height: 140%;
-    color: #000;
-    border: 1px solid transparent;
-    border-radius: 10px;
-    box-shadow: inset 0 0 20px #808080;
-}
-
-#news h2 {
-    text-align: left;
-    text-indent: 1em;
-}
-
-#news h3 {
-    margin: .5em;
-}
-
-.news_block {
-    margin: 2em;
-    padding: .5em;
-    border: 1px dashed #777;
-    border-radius: 5px;
-    box-shadow: 0 0 2px 2px rgba(119, 119, 119, .7), 0 0 5px 5px rgba(230, 27, 5, .2);
-    max-width: 30em;
-    background-color: #fff;
-}
-
-.news_block h3 {
-    border-bottom: 2px solid transparent;
-    margin-bottom: .5em;
-    color: #000;
-}
-
-.news_block h3:hover {
-    text-decoration: underline;
-    text-shadow: 1px 0 0 #e61b05;
-}
-
-.news_block p {
-    margin: -2em 0;
-}
-
-.news_title {
-    text-align: left !important;
-    text-indent: 1em;
-}
-
-.news_time {
-    display: block;
-    text-align: right;
-    font-style: italic;
-    font-size: 80%;
-    color: #000;
-    margin-bottom: 1em;
-}
-
-.next {
-    display: inline-block;
-    text-decoration: none;
-    color: #003333;
-    font-weight: bolder;
-    font-size: 80%;
-    margin: -1.5em 0;
-}
-
-.next:hover {
-    border-bottom: 1px solid #e61b05;
-}
-
-.author {
-    font-size: 80%;
-    text-align: right;
-    margin: -1em 0 .5em 0;
-}
-
-.this_page {
-    margin-left: 1em;
-    border: 1px solid #003333;
-    border-radius: 3px;
-    box-shadow: 1px 1px 0 #e61b05;
-    padding: 0 .25em;
-}
-
-/* конец блок новости */
 .kontext_img {
     float: left;
 }
@@ -1749,120 +1662,41 @@ code {
     text-align: center;
     background: #fff;
     height: 470px;
-    width: 360px !important;
+    width: 300px !important;
     z-index: 1000;
-    border: 2px solid rgba(230, 27, 5, .5);
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
     box-shadow: 0 0 20px #fff;
-    left: calc(100%/2 - 200px) !important;
+    left: calc(100% / 2 - 200px) !important;
 }
 
-#callback .modal-header{
-    border: none;
-    color: #000;
-    text-shadow: 0 .5px #e61b05;
+#callback .modal-header {
+    /*border: none;*/
+    color: #000 !important;
+    opacity: 1 !important;
+    /*text-shadow: 0 .5px #e61b05;*/
+}
+button.close{
+    margin-top: 10px !important;
+    margin-right: -5px !important;
+    width: 26px !important;
+    height: 26px !important;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3e%3cpath d='M7.53 6.47a.75.75 0 0 0-1.06 1.06l12 12a.75.75 0 0 0 1.06-1.06zm2.627 8.312L6.47 18.47a.75.75 0 1 0 1.06 1.06l3.688-3.687a.75.75 0 0 0-1.06-1.06zm5.108-3.297a.747.747 0 0 0 .53-.22L19.53 7.53a.75.75 0 0 0-1.06-1.06l-3.736 3.735a.75.75 0 0 0 .53 1.28z'%3e%3c/path%3e%3c/svg%3e");
+    background-repeat: no-repeat;
 }
 
-#formx {
-    position: absolute;
-    overflow: hidden;
-    box-sizing: border-box;
-    padding-left: 20px;
-    font-size: 16px;
-    font-family: arial;
-    background: #fff;
-    width: 320px;
-    height: 540px;
-    /*min-height: 400px;*/
-    z-index: 1000;
-    border: 2px solid rgba(230, 27, 5, .5);
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    box-shadow: 0 0 20px #fff;
-}
-
-
-#formx textarea {
-    width: 260px;
-    height: 60px;
-    padding: .5em;
-    margin: 8px auto;
-    border: 1px dashed #444;
-    border-radius: 5px;
-    outline: none;
-}
-
-#formx textarea:focus {
-    border: 1px solid #222;
-}
-
-.time_block {
-    margin-bottom: 12px;
-}
-
-#formx input[type=radio] {
-    width: 1em;
-    height: 1em;
-    display: inline-block;
-}
-
-.time_block label {
-    font-weight: bold;
-    color: #222;
-    margin-left: 5px;
-}
-
-#mail_form textarea:focus {
-    border: 1px solid #222;
-}
-
-.mail_bt {
-    /*position: absolute;*/
-    top: 7px;
-    left: 0px;
-    background: rgb(221, 221, 221);
-    background: rgb(238, 238, 238);
-    background: -webkit-linear-gradient(top, rgba(238, 238, 238, 1) 0%, rgba(204, 204, 204, 1) 100%);
-    background: linear-gradient(to bottom, rgba(238, 238, 238, 1) 0%, rgba(204, 204, 204, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#cccccc', GradientType=0);
-    /*font-family: "Comic Sans MS", cursive, sans-serif;*/
-    font-family: verdana;
-    text-align: center;
-    font-weight: bold;
-    color: #000;
-    border: 1px solid #e61b05;
-    box-shadow: 1px 1px 5px #eee;
-    border-radius: 5px;
-    outline: none;
-    width: 120px;
-    height: 35px;
-    font-size: 18px;
-    text-shadow: 1px 0 0 #e61b05;
-}
-
-.mail_bt:hover {
-    box-shadow: 1px 5px 10px #eee;
-    -webkit-transform: translateY(-3px);
-    transform: translateY(-3px);
-    cursor: pointer;
-}
-
-.mail_bt:active {
-    box-shadow: none;
+button.close::first-letter{
+    visibility: hidden;
 }
 
 button.close {
-    display: block;
-    position: absolute;
-    right: 10px !important;
-    top: 0px !important;
+    /*display: block;*/
+    /*position: absolute;*/
+    /*right: 10px !important;*/
+    margin-top: -10px !important;
+    margin-right: -15px !important;
     /*color: red !important;*/
-    text-transform: uppercase;
-    font-size: 30px;
-    font-weight: bold;
+    /*text-transform: uppercase;*/
+    /*font-size: 30px;*/
+    /*font-weight: bold;*/
     cursor: pointer;
     opacity: 1 !important;
 }
@@ -2279,7 +2113,7 @@ button.close {
     margin-top: 1em;
 }
 
-#portf{
+#portf {
     display: flex;
     justify-content: center;
 }
@@ -2358,6 +2192,7 @@ button.close {
     left: 25px;
     background: url(/img/newyear.gif);
 }
+
 /* Слайды на стр. создание */
 .align-left {
     float: left;
@@ -2376,6 +2211,7 @@ button.close {
     opacity: 1;
     transform: translateX(0%) scale(1);
 }
+
 /* / Слайды на стр. создание */
 /* Контактная форма на главной странице */
 #index-form {
@@ -2384,7 +2220,7 @@ button.close {
     margin: 0 auto;
 }
 
-.help-block{
+.help-block {
     color: #ff0000;
 }
 
@@ -2394,7 +2230,7 @@ button.close {
     margin-bottom: 15px;
 }
 
-#index-form input, #index-form textarea{
+#index-form input, #index-form textarea {
     width: calc(100% - 10px);
 }
 
@@ -2488,12 +2324,13 @@ button.close {
     font-weight: 300;
     transition: all 333ms ease-in-out;
     overflow: hidden;
-    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-    7px 7px 20px 0px rgba(0,0,0,.1),
-    4px 4px 5px 0px rgba(0,0,0,.1);
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+    7px 7px 20px 0px rgba(0, 0, 0, .1),
+    4px 4px 5px 0px rgba(0, 0, 0, .1);
 }
+
 /* здесь анимация на кнопке */
-.button-anim:before{
+.button-anim:before {
     position: absolute;
     content: '';
     display: inline-block;
@@ -2506,11 +2343,24 @@ button.close {
 }
 
 @-webkit-keyframes shiny-btn1 {
-    0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
-    80% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
-    81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
-    100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
+    0% {
+        -webkit-transform: scale(0) rotate(45deg);
+        opacity: 0;
+    }
+    80% {
+        -webkit-transform: scale(0) rotate(45deg);
+        opacity: 0.5;
+    }
+    81% {
+        -webkit-transform: scale(4) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scale(50) rotate(45deg);
+        opacity: 0;
+    }
 }
+
 /**/
 
 .success-button:hover {
@@ -2526,7 +2376,7 @@ button.close {
 }
 
 /*  */
-#callback input{
+#callback input {
     font-size: 18px;
     outline: none;
     border: none;
@@ -2540,27 +2390,111 @@ button.close {
     width: 250px;
     margin: 0 auto;
 }
+
 /* New loader */
 /*
   Set the color of the icon
 */
 svg path,
-svg rect{
+svg rect {
     fill: #e61b05;
 }
+
 /**/
-.politic{
+.politic {
     font-size: 70%;
 }
+
 /* Кастомный алерт */
-.alertm_overlay {    width:100%;    height:100%;    position:fixed;    left:0px;    top:0px;    z-index:99998;    background:rgba(51, 51, 51, 0.82);   display:none;}
-.alertm_all {font-family: Arial;    width:396px;    padding:29px 43px;    border-radius: .25rem;  background:#fff;    position:fixed;    left:50%;    margin-left:-241px;    top:50%;    z-index:99999;    }
-.alertm_all a {    -webkit-transition: all .2s ease-in-out;    -o-transition: all .2s ease-in-out;    transition: all .2s ease-in-out;    text-decoration: none;    color: #0275d8;}
-.alertm_all a:hover {    color: #222;}
-.alertm_h1 {    color: #0275d8;    font-size: 19px;    margin-bottom: 15px;}
-.alertm_text {    font-size: 16px;    line-height: 23px;}
-.alertm_wrapper { }
-.alertm_but {    display: inline-block;    font-weight: 400;    line-height: 1.25;    text-align: center;    white-space: nowrap;    vertical-align: middle;    -webkit-user-select: none;    -moz-user-select: none;    -ms-user-select: none;    user-select: none;    border: 1px solid transparent;    padding: .5rem 2rem;    font-size: 1rem;    border-radius: .25rem;    -webkit-transition: all .2s ease-in-out;    -o-transition: all .2s ease-in-out;    transition: all .2s ease-in-out;    color: #fff;    background-color: #0275d8;    border-color: #0275d8;    display: block;    margin-top: 25px;    cursor: pointer;}
-.alertm_but:hover {    color: #fff;    background-color: #025aa5;    border-color: #01549b;}
-a.alertm_close {    color: red;    text-decoration: none;    position: absolute;    right: 7px;    top: 0px;    font-size: 25px;}
+.alertm_overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 99998;
+    background: rgba(51, 51, 51, 0.82);
+    display: none;
+}
+
+.alertm_all {
+    font-family: Arial;
+    width: 396px;
+    padding: 29px 43px;
+    border-radius: .25rem;
+    background: #fff;
+    position: fixed;
+    left: 50%;
+    margin-left: -241px;
+    top: 50%;
+    z-index: 99999;
+}
+
+.alertm_all a {
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    text-decoration: none;
+    color: #0275d8;
+}
+
+.alertm_all a:hover {
+    color: #222;
+}
+
+.alertm_h1 {
+    color: #0275d8;
+    font-size: 19px;
+    margin-bottom: 15px;
+}
+
+.alertm_text {
+    font-size: 16px;
+    line-height: 23px;
+}
+
+.alertm_wrapper {
+}
+
+.alertm_but {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .5rem 2rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    color: #fff;
+    background-color: #0275d8;
+    border-color: #0275d8;
+    display: block;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.alertm_but:hover {
+    color: #fff;
+    background-color: #025aa5;
+    border-color: #01549b;
+}
+
+a.alertm_close {
+    color: red;
+    text-decoration: none;
+    position: absolute;
+    right: 7px;
+    top: 0px;
+    font-size: 25px;
+}
+
 /**/

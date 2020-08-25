@@ -15,8 +15,7 @@ Modal::begin([
     //    'footer' => 'TEST'
 ]);
 ?>
-<div class="row call2">
-    <div style="padding: 1em">
+<div class="row" style="padding: 1em">
         <?php Pjax::begin([
             'clientOptions' => [
                 'method' => 'POST'
@@ -52,11 +51,10 @@ Modal::begin([
         ]) */?>
 
         <div class="form-group">
-            <?= Html::submitButton('жду звонка!', ['class' => 'success-button button-anim']) ?>
+            <?= Html::submitButton('жду звонка!', ['class' => 'btn success-button button-anim']) ?>
         </div>
         <?php ActiveForm::end(); ?>
         <?php Pjax::end(); ?>
-    </div>
 </div>
 <?php
 Modal::end();

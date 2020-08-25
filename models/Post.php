@@ -45,12 +45,12 @@ class Post extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
+            'id' => 'id',
+            'name' => 'Имя',
             'email' => 'Email',
-            'tel' => 'Tel',
-            'body' => 'Body',
-            'date' => 'Date',
+            'tel' => 'Teл.',
+            'body' => 'Текст',
+            'date' => 'Дата',
         ];
     }
 
